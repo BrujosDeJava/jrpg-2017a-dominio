@@ -6,9 +6,7 @@ public abstract class Unidad {
 	private int fuerza;
 	private int defensa;
 	private String nombre;
-	private int nivel;
-	
-	
+	private int nivel;	
 	
 	
 	

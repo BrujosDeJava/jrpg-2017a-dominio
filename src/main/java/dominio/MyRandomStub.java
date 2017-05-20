@@ -1,11 +1,40 @@
 package dominio;
 
 public class MyRandomStub extends RandomNumberGenerator{
-	
-	public static double randomDouble(double n) {
-		return n;
+	private int vali;
+	private double vald;
+	public MyRandomStub(int val){
+		vali = val;
 	}
-	public static int randomInt(int n) {
-		 return n;
+	public MyRandomStub(double val){
+		vald = val;
+	}
+	/**
+	 * Devuelve valor 0
+	 * 
+	 */
+	public double randomDouble() {
+		return 0;
+	}
+	/**
+	 * Devuelve valor 0
+	 * 
+	 */
+	public int randomInt(int n) {
+		 return 0;
+	}
+	/**
+	 * Devuelve valor double inicializado
+	 * 
+	 */
+	public double randomDoubleFijo() {
+		return vald;
+	}
+	/**
+	 * Devuelve valor int inicializado
+	 * 
+	 */
+	public double randomIntFijo() {
+		return vali;
 	}
 }

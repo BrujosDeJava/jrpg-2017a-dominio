@@ -8,9 +8,7 @@ package dominio;
 */
 public class NonPlayableCharacter extends Unidad implements Peleable {
 
-	private static final int DIFICULTADO_ALEATORIA = -1;
-	private static final int SEMILLA_RANDOM = 3;
-	
+	private static final int DIFICULTADO_ALEATORIA = -1;	
 	private static final int FUERZA_BASE_DIFICULTAD_0 = 10;
 	private static final int MULTIPLICADOR_FUERZA_DIFICULTAD_0 = 3;
 	private static final int SALUD_BASE_DIFICULTAD_0 = 30;
@@ -32,6 +30,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
   
   private static final double PORCENTAJE_CRITICO = 0.15;
   private static final double AUMENTO_DANO_CRITICO = 1.5;
+  private RandomNumberGenerator randgen = new MyRandom();
 
   /** 
    * Constructor parametrizado
@@ -40,7 +39,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 		super(nombre,nivel);
 		int dificultad;
 		if (dificultadNPC == DIFICULTADO_ALEATORIA) {
-      dificultad = MyRandom.randomInt();
+      dificultad = randgen.randomInt(2);
     } else {
       dificultad = dificultadNPC;
     }
@@ -83,7 +82,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 	retornando el daño infligido. 
 */
 	public int atacar(final Peleable atacado) {
-		if (MyRandom.randomDouble() <= PORCENTAJE_CRITICO) {  // los NPC tienen 15% de golpes criticos
+		if ( randgen.randomDouble()<= PORCENTAJE_CRITICO) {  // los NPC tienen 15% de golpes criticos
 			return atacado.serAtacado((int) (this.getAtaque() * AUMENTO_DANO_CRITICO));
 		} else {
       return atacado.serAtacado(this.getAtaque());
@@ -96,7 +95,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 	de evasion y de la defensa del objetivo.
 */
 	public int serAtacado(int dano) {
-		if (MyRandom.randomDouble() >= 0.15) {
+		if (randgen.randomDouble() >= 0.15) {
 			dano -= this.getDefensa() / 2;
 			if (dano > 0) {
 				this.setSalud(this.getSalud() - dano);
@@ -123,4 +122,9 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 	public void setAtaque(final int ataque) {
 		this.setFuerza(ataque);
 	}
+
+	public void setRandgen(RandomNumberGenerator randgen) {
+		this.randgen = randgen;
+	}
+	
 }
