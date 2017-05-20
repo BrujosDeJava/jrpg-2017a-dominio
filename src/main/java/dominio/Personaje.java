@@ -319,9 +319,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /** El siguiente define lo que tiene que realizar el personaje despues del turno*/
-  public void despuesDeTurno() {
-
-  }
+  public void despuesDeTurno() {}
   
   /** El siguiente metodo autoriza al personaje a poder atacar si cuenta con 
     * la energia suficiente

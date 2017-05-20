@@ -156,28 +156,28 @@ public class TestPersonaje {
 	@Test
 	public void testPuedeAtacar(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setEnergia(100);
 		Assert.assertTrue(h.puedeAtacar());
 	}
 	@Test
 	public void testNoPuedeAtacar(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setEnergia(0);
+		Humano h = new Humano("Nico",100,0,25,25,25,new Guerrero(),0,1,1);
 		Assert.assertFalse(h.puedeAtacar());
 	}
 	@Test
 	public void testRestablecerSalud(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setSalud(1);
-		Assert.assertEquals(h.getSalud(), 1);		
+		h.setRandgen(new MyRandomStub(0.5));
+		h.serAtacado(50);
+		Assert.assertEquals(h.getSalud(), 75);		
 		h.restablecerSalud();
 		Assert.assertEquals(h.getSalud(), h.getSaludTope());
 	}
 	@Test
 	public void testRestablecerEnergia(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setEnergia(1);
-		Assert.assertEquals(h.getEnergia(), 1);		
+		h.setRandgen(new MyRandomStub(0.5));
+		h.serDesernegizado(50);
+		Assert.assertEquals(h.getEnergia(), 75);		
 		h.restablecerEnergia();
 		Assert.assertEquals(h.getEnergia(), h.getEnergiaTope());
 	}
@@ -185,38 +185,34 @@ public class TestPersonaje {
 	public void testSerAtacadoyEsquivar(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
 		Humano h2 = new Humano("Nico2",100,100,25,25,25,new Guerrero(),0,1,1);
-		h2.setSalud(200);
-		h2.getCasta().setProbabilidadEvitarDano(1);
+		h2.setRandgen(new MyRandomStub(0.1));
 		h.atacar(h2);
-		Assert.assertEquals(200, h2.getSalud());
+		Assert.assertEquals(100, h2.getSalud());
 	}
 	@Test
 	public void testSerAtacadoyNoRecibirDaño(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		Humano h2 = new Humano("Nico2",100,100,25,25,25,new Guerrero(),0,1,1);
-		h2.setSalud(200);
-		h2.getCasta().setProbabilidadEvitarDano(0);
-		h.setAtaque(0);
-		h.atacar(h2);
-		Assert.assertEquals(200, h2.getSalud());
+		h.setRandgen(new MyRandomStub(0.5));
+		h.serAtacado(1);
+		Assert.assertEquals(100, h.getSalud());
 	}
 	@Test
 	public void testSerAtacadoyRecibirDaño(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
 		Humano h2 = new Humano("Nico2",100,100,25,25,25,new Guerrero(),0,1,1);
-		h2.setSalud(200);
-		h2.getCasta().setProbabilidadEvitarDano(0);
-		h.setAtaque(100);
+		h2.setRandgen(new MyRandomStub(0.5));
+		h.setRandgen(new MyRandomStub(0.5));
 		h.atacar(h2);
-		Assert.assertEquals(125, h2.getSalud());
+		Assert.assertEquals(88, h2.getSalud());
 	}
 	@Test
-	public void testAtacar(){
+	public void testAtacarCritico(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
 		Humano h2 = new Humano("Nico2",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.getCasta().setProbabilidadGolpeCritico(1);
-		Assert.assertEquals(30, h.atacar(h2),0.0001);
-		
+		h2.setRandgen(new MyRandomStub(0.5));
+		h.setRandgen(new MyRandomStub(0.1));
+		h.atacar(h2);
+		Assert.assertEquals(70, h2.getSalud());
 	}
 	@Test
 	public void testSerRobadoSalud(){
@@ -241,9 +237,13 @@ public class TestPersonaje {
 	@Test
 	public void testSerEnergizado(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setEnergia(0);
-		h.serEnergizado(2000);
-		Assert.assertEquals(h.getEnergia(), h.getEnergiaTope());
+		h.setRandgen(new MyRandomStub(0.5));
+		h.serDesernegizado(100);
+		Assert.assertEquals(25, h.getEnergia());
+		h.serEnergizado(10);
+		Assert.assertEquals(35, h.getEnergia());
+		h.serEnergizado(100);
+		Assert.assertEquals(h.getEnergiaTope(), h.getEnergia());
 	}
 	@Test
 	public void testCrearAlianza(){

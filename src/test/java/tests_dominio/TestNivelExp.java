@@ -14,7 +14,7 @@ public class TestNivelExp {
 		Personaje.cargarTablaNivel();
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 		h.ganarExperiencia(45);
-		Assert.assertTrue(h.getExperiencia() == 45);
+		Assert.assertEquals(h.getExperiencia(), 45);
 	}
 
 	@Test
@@ -22,8 +22,8 @@ public class TestNivelExp {
 		Personaje.cargarTablaNivel();
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 1, 1);
 		h.ganarExperiencia(300);
-		Assert.assertTrue(h.getNivel() == 4);
-		Assert.assertTrue(h.getExperiencia() == 0);
+		Assert.assertEquals(h.getNivel(), 4);
+		Assert.assertEquals(h.getExperiencia(), 0);
 	}
 
 	@Test
@@ -31,6 +31,6 @@ public class TestNivelExp {
 		Personaje.cargarTablaNivel();
 		Humano h = new Humano("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 99, 1);
 		h.ganarExperiencia(10000);
-		Assert.assertTrue(h.getNivel() == 100);
+		Assert.assertEquals(h.getNivel(), 100);
 	}
 }

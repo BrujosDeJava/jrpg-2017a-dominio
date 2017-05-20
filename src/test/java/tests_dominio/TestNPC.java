@@ -3,6 +3,7 @@ package tests_dominio;
 import org.junit.Assert;
 import org.junit.Test;
 
+import dominio.MyRandomStub;
 import dominio.NonPlayableCharacter;
 
 public class TestNPC {
@@ -34,6 +35,14 @@ public class TestNPC {
 		Assert.assertEquals(npcHard.getSalud(), 75);
 		Assert.assertEquals(npcHard.getDefensa(), 8);
 	}
+	@Test
+	public void testDificultadDefault(){
+		NonPlayableCharacter npcDefault = new NonPlayableCharacter("Goblin",2,3);
+		Assert.assertEquals(npcDefault.getFuerza(), 0);
+		Assert.assertEquals(npcDefault.getSalud(), 0);
+		Assert.assertEquals(npcDefault.getDefensa(), 0);
+	}
+	
 	@Test
 	public void testGetterSetterAtaque(){
 		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
@@ -74,48 +83,67 @@ public class TestNPC {
 	@Test
 	public void testSerAtacadoyDañado(){
 		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
-		goblin.setSalud(100);
-		Assert.assertEquals(100, goblin.getSalud());
-		goblin.setDefensa(0);
-		Assert.assertEquals(0, goblin.getDefensa());
-		goblin.serAtacado(80);
-		Assert.assertEquals(20, goblin.getSalud());
+		Assert.assertEquals(40, goblin.getSalud());
+		Assert.assertEquals(5, goblin.getDefensa());
+		goblin.setRandgen(new MyRandomStub(0.5));
+		goblin.serAtacado(10);
+		Assert.assertEquals(32, goblin.getSalud());
 	}
 	@Test
 	public void testSerAtacadoyMorir(){
 		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
-		goblin.setSalud(100);
-		Assert.assertEquals(100, goblin.getSalud());
-		goblin.setDefensa(0);
-		Assert.assertEquals(0, goblin.getDefensa());
+		Assert.assertEquals(40, goblin.getSalud());
+		Assert.assertEquals(5, goblin.getDefensa());
+		goblin.setRandgen(new MyRandomStub(0.1));
 		goblin.serAtacado(100);
-		Assert.assertEquals(0, goblin.getSalud());
+		Assert.assertTrue(goblin.estaVivo());
+		goblin.setRandgen(new MyRandomStub(0.5));
+		goblin.serAtacado(100);
 		Assert.assertFalse(goblin.estaVivo());
 	}
 	@Test
 	public void testSerAtacadoyNoDañado(){
 		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
-		goblin.setSalud(100);
-		Assert.assertEquals(100, goblin.getSalud());
-		goblin.setDefensa(0);
-		Assert.assertEquals(0, goblin.getDefensa());
-		goblin.serAtacado(0);
-		Assert.assertEquals(100, goblin.getSalud());
+		Assert.assertEquals(40, goblin.getSalud());
+		Assert.assertEquals(5, goblin.getDefensa());
+		goblin.setRandgen(new MyRandomStub(0.5));
+		goblin.serAtacado(1);
+		Assert.assertEquals(40, goblin.getSalud());
 	}
 	
 	@Test
-	public void testSerAtacadoyEsquivar(){}
+	public void testSerAtacadoyEsquivar(){
+		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
+		Assert.assertEquals(40, goblin.getSalud());
+		Assert.assertEquals(5, goblin.getDefensa());
+		goblin.setRandgen(new MyRandomStub(0.1));
+		goblin.serAtacado(100);
+		Assert.assertEquals(40, goblin.getSalud());
+	}
 	
 	@Test
-	public void testAtacarSinCritico(){}
+	public void testAtacarSinCritico(){
+		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
+		NonPlayableCharacter ogro = new NonPlayableCharacter("Ogro",1,1);
+		ogro.setRandgen(new MyRandomStub(0.5));
+		goblin.setRandgen(new MyRandomStub(0.5));
+		ogro.atacar(goblin);
+		Assert.assertEquals(goblin.getSalud(),22);
+	}
 	
 	@Test
 	public void testAtacarCritico(){
 		NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin",1,1);
 		NonPlayableCharacter ogro = new NonPlayableCharacter("Ogro",1,1);
-		goblin.setSalud(100);
-		ogro.setAtaque(50);
+		ogro.setRandgen(new MyRandomStub(0.1));
+		goblin.setRandgen(new MyRandomStub(0.5));
 		ogro.atacar(goblin);
-		Assert.assertEquals(goblin.getSalud(),52);
+		Assert.assertEquals(goblin.getSalud(),12);
 	}
+	
+	@Test
+	public void testDespuesdeTurno(){}
+	
+	@Test
+	public void testGanarExperiencia(){}
 }

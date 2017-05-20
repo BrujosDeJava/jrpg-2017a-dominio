@@ -14,27 +14,13 @@ public class MyRandomStub extends RandomNumberGenerator{
 	 * 
 	 */
 	public double randomDouble() {
-		return 0;
+		return vald;
 	}
 	/**
 	 * Devuelve valor 0
 	 * 
 	 */
 	public int randomInt(int n) {
-		 return 0;
-	}
-	/**
-	 * Devuelve valor double inicializado
-	 * 
-	 */
-	public double randomDoubleFijo() {
-		return vald;
-	}
-	/**
-	 * Devuelve valor int inicializado
-	 * 
-	 */
-	public double randomIntFijo() {
-		return vali;
+		 return vali;
 	}
 }
