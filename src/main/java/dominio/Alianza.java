@@ -20,7 +20,9 @@ public class Alianza {
   
   /** Este medoto devuelve el listado de los personajes aliados en la alianza actual*/
   public LinkedList<Personaje> getAliados() {
-    return aliados;
+	  LinkedList <Personaje> aux = new LinkedList<Personaje>();
+	  aux = (LinkedList<Personaje>) aliados.clone();
+    return aux;
   }
 
   /** Este medoto devuelve el nombre de la alianza actual @David*/ 
