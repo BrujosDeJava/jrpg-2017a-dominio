@@ -40,7 +40,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 		super(nombre,nivel);
 		int dificultad;
 		if (dificultadNPC == DIFICULTADO_ALEATORIA) {
-      dificultad = MyRandom.nextInt(SEMILLA_RANDOM);
+      dificultad = MyRandom.randomInt();
     } else {
       dificultad = dificultadNPC;
     }
@@ -83,7 +83,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 	retornando el daño infligido. 
 */
 	public int atacar(final Peleable atacado) {
-		if (MyRandom.nextDouble() <= PORCENTAJE_CRITICO) {  // los NPC tienen 15% de golpes criticos
+		if (MyRandom.randomDouble() <= PORCENTAJE_CRITICO) {  // los NPC tienen 15% de golpes criticos
 			return atacado.serAtacado((int) (this.getAtaque() * AUMENTO_DANO_CRITICO));
 		} else {
       return atacado.serAtacado(this.getAtaque());
@@ -96,7 +96,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 	de evasion y de la defensa del objetivo.
 */
 	public int serAtacado(int dano) {
-		if (MyRandom.nextDouble() >= 0.15) {
+		if (MyRandom.randomDouble() >= 0.15) {
 			dano -= this.getDefensa() / 2;
 			if (dano > 0) {
 				this.setSalud(this.getSalud() - dano);

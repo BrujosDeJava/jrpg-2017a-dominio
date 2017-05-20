@@ -3,21 +3,18 @@ package dominio;
 /**
  *  La clase MyRandom sirve para generar, con nuestras propias reglas, numeros aleatorios
 */
-public class MyRandom {
-  
-  private static final double DOUBLE_ALEATORIO = 0.49;
-
+public class MyRandom extends RandomNumberGenerator{
   /**
-   *  nextDouble genera un Double aleatorio
+   *  randomDouble genera un Double aleatorio entre 0 y 1
   */
-	public static double nextDouble() {
-		return DOUBLE_ALEATORIO;
+	public static double randomDouble() {
+		return Math.random();
 	}
 	
 	/**
-   *  nextInt genera un Entero aleatorio
+   *  randomInt genera un Entero aleatorio entre 0 y 100
   */
-	public static int nextInt(final int val) {
-		return val - 1;
+	public static int randomInt() {
+		 return (int) Math.round(Math.random()*100);
 	}
 }

@@ -302,7 +302,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
       return 0;
     }
                                 
-    if (MyRandom.nextDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
+    if (MyRandom.randomDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
       return atacado.serAtacado(this.golpe_critico());
     } else {
       return atacado.serAtacado(this.ataque);
@@ -371,7 +371,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   /** El siguiente metodo permite al enemigo atacar al personaje */
   public int serAtacado(int dano) {
-    if (MyRandom.nextDouble() >= this.getCasta().getProbabilidadEvitarDano()) {
+    if (MyRandom.randomDouble() >= this.getCasta().getProbabilidadEvitarDano()) {
       dano -= this.getDefensa();
       if (dano > 0) {
         if (this.getSalud() <= dano) {
