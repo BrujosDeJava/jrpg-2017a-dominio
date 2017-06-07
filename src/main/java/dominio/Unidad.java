@@ -2,11 +2,11 @@ package dominio;
 
 public abstract class Unidad {
 
-	private int salud;
-	private int fuerza;
-	private int defensa;
+	protected int salud;
+	protected int fuerza;
+	protected int defensa;
 	private String nombre;
-	private int nivel;	
+	protected int nivel;	
 	
 	
 	
@@ -34,31 +34,33 @@ public abstract class Unidad {
 	public int getNivel() {
 		return nivel;
 	}
-
-	/** Este metodo sirve para modificar el nivel del NPC*/
+/*
+	/** Este metodo sirve para modificar el nivel del NPC
 	public void setNivel(final int nivel) {
 		this.nivel = nivel;
 	}
+*/	
 	
 	/** El siguiente metodo establece el nivel de salud del personaje */
 	 public int getSalud() {
 	   return salud;
 	 }
-	  
-	 /** El siguiente metodo establece el nivel de salud del personaje */
+/*	  
+	 /** El siguiente metodo establece el nivel de salud del personaje
 	 public void setSalud(final int salud) {
 	   this.salud = salud;
 	 }
+*/	 
 	 /** Este metodo devuelve la defensa del NPC*/
 	 public int getDefensa() {
 		return defensa;
 	 }
-    
-	 /** Este medoto sirve para modificar la defensa del NPC*/
+/*    
+	 /** Este medoto sirve para modificar la defensa del NPC
 	 public void setDefensa(final int defensa) {
 			this.defensa = defensa;
 	 }
-	 
+*/	 
 	 public Unidad(int salud, String nombre, int fuerza, int nivel){
 		 
 		 this.salud = salud;

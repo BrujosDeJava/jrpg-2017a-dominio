@@ -104,42 +104,9 @@ public class TestPersonaje {
 		h.setMagia(69);
 		Assert.assertEquals(69, h.getMagia());
 	}
-	@Test
-	public void testSettersGettersCasta(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setCasta(new Hechicero());
-		Assert.assertEquals("Hechicero", h.getCasta().getNombreCasta());
-	}
-	@Test
-	public void testSettersGettersExperiencia(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setExperiencia(1000);
-		Assert.assertEquals(1000, h.getExperiencia());
-	}
-	@Test
-	public void testSettersGettersNivel(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setNivel(25);
-		Assert.assertEquals(25, h.getNivel());
-	}
-	@Test
-	public void testSettersGettersID(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setIdPersonaje(33);
-		Assert.assertEquals(33, h.getIdPersonaje());
-	}
-	@Test
-	public void testSettersGettersSaludTope(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setSaludTope(255);
-		Assert.assertEquals(255, h.getSaludTope());
-	}
-	@Test
-	public void testSettersGettersEnergiaTope(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setEnergiaTope(255);
-		Assert.assertEquals(255, h.getEnergiaTope());
-	}
+	
+	
+	
 	@Test
 	public void testSettersGettersHabilidadesCasta(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);

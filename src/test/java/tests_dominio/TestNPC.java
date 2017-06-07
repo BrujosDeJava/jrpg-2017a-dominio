@@ -49,35 +49,19 @@ public class TestNPC {
 		npc.setAtaque(10);
 		Assert.assertEquals(10, npc.getAtaque());
 	}
-	@Test
-	public void testGetterSetterDefensa(){
-		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
-		npc.setDefensa(10);
-		Assert.assertEquals(10, npc.getDefensa());
-	}
+	
 	@Test
 	public void testGetterSetterFuerza(){
 		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
 		npc.setFuerza(10);
 		Assert.assertEquals(10, npc.getFuerza());
 	}
-	@Test
-	public void testGetterSetterNivel(){
-		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
-		npc.setNivel(15);
-		Assert.assertEquals(npc.getNivel(), 15);
-	}
+	
 	@Test
 	public void testGetterSetterNombre(){
 		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
 		npc.setNombre("Prueba");
 		Assert.assertEquals(npc.getNombre(), "Prueba");
-	}
-	@Test
-	public void testGetterSetterSalud(){
-		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
-		npc.setSalud(100);
-		Assert.assertEquals(npc.getSalud(), 100);
 	}
 	
 	@Test
