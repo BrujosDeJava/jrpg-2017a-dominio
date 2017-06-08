@@ -12,6 +12,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /**
    * 
    */
+  private static Inventario inventario;
   private static final long serialVersionUID = 1L;
   private static final int TAMANO_ARRAY_NIVELES = 101;
   private static final int SALTO_EXPERIENCIA_ENTRE_NIVELES = 50;
@@ -75,6 +76,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 		  final int AUMENTO_SALUD,final int AUMENTO_ENERGIA, final String nombreDeRaza,
 		  final String nomHabilidadesRaza []) {
     super(nombre);
+    inventario= new Inventario();
     this.casta = guerrero;
     this.idPersonaje = id;
     experiencia = 0;
@@ -102,6 +104,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 		  final int AUMENTO_SALUD,final int AUMENTO_ENERGIA, final String nombreDeRaza
 		  ,final String nomHabilidadesRaza []) {
     super(nombre);
+    inventario= new Inventario();
     this.casta = hechicero;
     this.idPersonaje = id;
     experiencia = 0;
@@ -129,6 +132,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 		  final int AUMENTO_SALUD,final int AUMENTO_ENERGIA, final String nombreDeRaza
 		  ,final String nomHabilidadesRaza []) {
     super(nombre);
+    inventario= new Inventario();
     this.casta = asesino;
     this.idPersonaje = id;
     experiencia = 0;
@@ -158,7 +162,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
       final int experiencia, final int nivel, final int idPersonaje, final String nombreDeRaza
       ,final String nomHabilidadesRaza []) {
      super(salud,nombre,fuerza,nivel);
-    
+    inventario= new Inventario();
     this.energia = energia;
     this.destreza = destreza;
     this.inteligencia = inteligencia;
@@ -187,7 +191,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   /** El siguiente metodo retorna el nivel de ataque del personaje */
   public int getAtaque() {
-    return ataque;
+    return ataque+inventario.getAtaque();
   }
   
   /** El siguiente metodo establece el nivel de ataquea del personaje */
@@ -331,7 +335,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** El siguiente metodo calcula los puntos de ataque siendo éste 3/2 de la fuerza
    * */
   public int calcularPuntosDeAtaque() {
-    return (int) (this.getFuerza() * 1.5);
+    return (int) ((this.getFuerza()*1.5));
   }
 
   /** El siguiente metodo calcula los puntos de defenza siendo este el mismo
@@ -344,7 +348,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** El siguiente metodo calcula los puntos de magia siendo éste 3/2 de la inteligencia
    * */
   public int calcularPuntosDeMagia() {
-    return (int) (this.getInteligencia() * 1.5);
+    return (int) ((this.getInteligencia()) * 1.5);
   }
   
   /** El siguiente metodo recarga el nivel de salud del personaje al máximo */
