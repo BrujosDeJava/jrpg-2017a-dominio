@@ -3,7 +3,7 @@ package dominio;
 import java.io.Serializable;
 
 import mensajeria.PaqueteAtacar;
-import mensajeria.PaquetePersonaje;
+import mensajeria.PaquetePersonajeDom;
 
 /**
     La clase "Personaje" es la que se encargara de administrar los
@@ -50,9 +50,9 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   private RandomNumberGenerator randgen = new MyRandom();
   
-  private PaquetePersonaje pp;
+  private PaquetePersonajeDom pp;
   
-  public void actualizarEstado(PaquetePersonaje pp){
+  public void actualizarEstado(PaquetePersonajeDom pp){
 	  
 	   
 	  //setFuerza, --> es de Unidad

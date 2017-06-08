@@ -3,7 +3,7 @@ package tests_dominio;
 import org.junit.Test;
 
 import dominio.*;
-import mensajeria.PaquetePersonaje;
+import mensajeria.PaquetePersonajeDom;
 
 import org.junit.Assert;
 
@@ -32,7 +32,7 @@ public class TestAsignarPuntos {
 	@Test
 	public void testMasDe200Puntos(){
 		Humano h = new Humano("Nicolas",new Guerrero(),1);
-		PaquetePersonaje pp = new PaquetePersonaje();
+		PaquetePersonajeDom pp = new PaquetePersonajeDom();
 
 		pp.setFuerza(199);
 		pp.setDestreza(199);
