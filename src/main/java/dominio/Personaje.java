@@ -116,7 +116,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 		//setEnergia,* es de Unidad
 	   this.energia = pa.getNuevaEnergiaEnemigo();
 	  }
-	  
+	  //
 	  if( this.idPersonaje == pa.getId() ){
 		   	// setSalud,
 		   super.salud = pa.getNuevaSaludPersonaje();
