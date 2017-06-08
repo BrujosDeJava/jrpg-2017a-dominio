@@ -6,7 +6,6 @@ public class PaquetePersonajeDom extends Paquete implements Serializable, Clonea
 
 	private int id;
 	private int idMapa;
-	private int estado;
 	private String casta;
 	private String nombre;
 	private String raza;
@@ -19,14 +18,6 @@ public class PaquetePersonajeDom extends Paquete implements Serializable, Clonea
 	private int experiencia;
 
 
-	public int getEstado() {
-		return estado;
-	}
-
-	public void setEstado(int estado) {
-		this.estado = estado;
-	}
-	
 	public int getMapa(){
 		return idMapa;
 	}
