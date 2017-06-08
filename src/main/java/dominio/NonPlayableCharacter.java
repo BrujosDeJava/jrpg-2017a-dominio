@@ -47,18 +47,18 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 		switch (dificultad) {
 		case 0:
 			this.setFuerza(FUERZA_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_0);  // 30%
-			this.setSalud(SALUD_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_0);
-			this.setDefensa(2 + (nivel - 1) * 1);
+			this.salud = SALUD_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_0;
+			this.defensa = 2+ (nivel - 1) * 1;
 			break;
 		case 1:
 			this.setFuerza( FUERZA_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_1);  // 50%
-			this.setSalud( SALUD_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_1);
-			this.setDefensa( DEFENSA_BASE_DIFICULTAD_1 + (nivel - 1) * 2);
+			this.salud = (SALUD_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_1);
+			this.defensa = ( DEFENSA_BASE_DIFICULTAD_1 + (nivel - 1) * 2);
 			break;
 		case 2:
 			this.setFuerza( FUERZA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_2); // 50%
-			this.setSalud( SALUD_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_2);
-			this.setDefensa( DEFENSA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_DEFENSA_DIFICULTAD_2);
+			this.salud = ( SALUD_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_2);
+			this.defensa = ( DEFENSA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_DEFENSA_DIFICULTAD_2);
 			break;
     default:
       break;
@@ -98,7 +98,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 		if (randgen.randomDouble() >= 0.15) {
 			dano -= this.getDefensa() / 2;
 			if (dano > 0) {
-				this.setSalud(this.getSalud() - dano);
+				this.salud -=  dano;
 				return dano;
 			}
 			return 0;// no le hace daño ya que la defensa fue mayor
