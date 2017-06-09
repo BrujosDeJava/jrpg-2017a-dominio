@@ -591,4 +591,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   public Item otorgarItem(int n){
 	  return Item.generarItem(n);
   }
+  public void recibirObjeto(Item o){
+	  inventario.añadir(o);
+  }
 }
