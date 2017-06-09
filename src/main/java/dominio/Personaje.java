@@ -541,6 +541,8 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 	  this.idPersonaje = pp.getId();
 	  this.saludTope = pp.getSaludTope();
 	  this.energiaTope = pp.getEnergiaTope();
+	  super.nombre = pp.getNombre();
+	  this.nombreRaza = pp.getRaza();
   }
   
   private void cambiaCasta(String casta2) {

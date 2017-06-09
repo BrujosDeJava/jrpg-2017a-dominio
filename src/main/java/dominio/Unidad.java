@@ -5,7 +5,7 @@ public abstract class Unidad {
 	protected int salud;
 	protected int fuerza;
 	protected int defensa;
-	private String nombre;
+	protected String nombre;
 	protected int nivel;	
 	
 	

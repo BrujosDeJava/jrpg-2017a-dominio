@@ -29,7 +29,7 @@ public class TestAsignarPuntos {
 		Assert.assertEquals(h.getEnergiaTope(),125);
 	}
 	
-	@Test
+	/*@Test
 	public void testMasDe200Puntos(){
 		Humano h = new Humano("Nicolas",new Guerrero(),1);
 		PaquetePersonajeDom pp = new PaquetePersonajeDom();
@@ -43,5 +43,5 @@ public class TestAsignarPuntos {
 		Assert.assertEquals(h.getFuerza(),199);
 		Assert.assertEquals(h.getDestreza(),199);
 		Assert.assertEquals(h.getInteligencia(),199);
-	}
+	}*/
 }
