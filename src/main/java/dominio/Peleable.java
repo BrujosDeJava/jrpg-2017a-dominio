@@ -18,6 +18,9 @@ public interface Peleable {
   /** Este metodo define la experiencia que otorga la clase que implemente la interface Peleable*/
   int otorgarExp();
   
+  /** Este metodo define la experiencia que otorga la clase que implemente la interface Peleable*/
+  Item otorgarItem(int n);
+  
   /** Este metodo devuelve el ataque de la clase que implemente la interface Peleable*/
   int getAtaqueTotal();
   

@@ -588,4 +588,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   public int getEnergiaTotal() {
 	    return energiaTope+inventario.getEnergia();
 	  }
+  public Item otorgarItem(int n){
+	  return Item.generarItem(n);
+  }
 }

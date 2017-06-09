@@ -128,4 +128,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 		this.randgen = randgen;
 	}
 	
+	public Item otorgarItem(int n){
+		  return Item.generarItem(n);
+	  }
 }

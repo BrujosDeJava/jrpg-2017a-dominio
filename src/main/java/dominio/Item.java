@@ -17,7 +17,50 @@ public class Item {
 		super();
 		this.nombre = nombre;
 	}
-
+	
+	public static Item generarItem(int n){
+		Item item;
+		switch(n){
+		case 0:
+			item = new Item("Espada");
+			item.setAtaque(20);
+			item.setFuerza(5);
+			break;
+		case 1:
+			item = new Item("Armadura");
+			item.setDefensa(15);
+			item.setSalud(20);
+			break;
+		case 2:
+			item = new Item("Casco");
+			item.setDefensa(10);
+			item.setDex(5);
+			break;
+		case 3:
+			item = new Item("Baculo");
+			item.setMagia(30);
+			item.setEnergia(5);
+			break;
+		case 4:
+			item = new Item("Gorro");
+			item.setInteligencia(20);
+			item.setEnergia(30);
+			break;
+		case 5:
+			item = new Item("Botas");
+			item.setDex(10);
+			item.setSalud(10);
+			break;
+		default:
+			item =new Item("Anillo");
+			item.setAtaque(1);
+			item.setDefensa(1);
+			item.setMagia(1);
+			break;
+		}
+		
+		return item;
+	}
 	
 	public int getMagia() {
 		return magia;
