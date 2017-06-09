@@ -47,14 +47,7 @@ public class TestNPC {
 	public void testGetterSetterAtaque(){
 		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
 		npc.setAtaque(10);
-		Assert.assertEquals(10, npc.getAtaque());
-	}
-	
-	@Test
-	public void testGetterSetterFuerza(){
-		NonPlayableCharacter npc = new NonPlayableCharacter("Goblin",1,1);
-		npc.setFuerza(10);
-		Assert.assertEquals(10, npc.getFuerza());
+		Assert.assertEquals(10, npc.getAtaqueTotal());
 	}
 	
 	@Test

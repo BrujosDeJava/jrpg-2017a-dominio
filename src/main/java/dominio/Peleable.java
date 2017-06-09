@@ -19,7 +19,7 @@ public interface Peleable {
   int otorgarExp();
   
   /** Este metodo devuelve el ataque de la clase que implemente la interface Peleable*/
-  int getAtaque();
+  int getAtaqueTotal();
   
   /** Este metodo sirve para definir el ataque de la clase que implemente la interface Peleable*/
   void setAtaque(int ataque);

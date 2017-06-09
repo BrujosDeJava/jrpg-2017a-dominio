@@ -46,17 +46,17 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 
 		switch (dificultad) {
 		case 0:
-			this.setFuerza(FUERZA_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_0);  // 30%
+			super.fuerza=(FUERZA_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_0);  // 30%
 			this.salud = SALUD_BASE_DIFICULTAD_0 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_0;
 			this.defensa = 2+ (nivel - 1) * 1;
 			break;
 		case 1:
-			this.setFuerza( FUERZA_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_1);  // 50%
+			super.fuerza=( FUERZA_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_1);  // 50%
 			this.salud = (SALUD_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_1);
 			this.defensa = ( DEFENSA_BASE_DIFICULTAD_1 + (nivel - 1) * 2);
 			break;
 		case 2:
-			this.setFuerza( FUERZA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_2); // 50%
+			super.fuerza=( FUERZA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_2); // 50%
 			this.salud = ( SALUD_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_2);
 			this.defensa = ( DEFENSA_BASE_DIFICULTAD_2 + (nivel - 1) * MULTIPLICADOR_DEFENSA_DIFICULTAD_2);
 			break;
@@ -83,9 +83,9 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 */
 	public int atacar(final Peleable atacado) {
 		if ( randgen.randomDouble()<= PORCENTAJE_CRITICO) {  // los NPC tienen 15% de golpes criticos
-			return atacado.serAtacado((int) (this.getAtaque() * AUMENTO_DANO_CRITICO));
+			return atacado.serAtacado((int) (this.getAtaqueTotal() * AUMENTO_DANO_CRITICO));
 		} else {
-      return atacado.serAtacado(this.getAtaque());
+      return atacado.serAtacado(this.getAtaqueTotal());
     }
 	}
 
@@ -114,13 +114,14 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
 
 	/** Este metodo devuelve el ataque del NPC*/
 	@Override
-	public int getAtaque() {
+	public int getAtaqueTotal() {
 		return this.getFuerza();
 	}
+	
 	/** Este medoto sirve para modificar el ataque del NPC*/
 	@Override
 	public void setAtaque(final int ataque) {
-		this.setFuerza(ataque);
+		super.fuerza=ataque;
 	}
 
 	public void setRandgen(RandomNumberGenerator randgen) {

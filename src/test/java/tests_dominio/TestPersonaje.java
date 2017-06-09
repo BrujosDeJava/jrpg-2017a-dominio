@@ -86,26 +86,13 @@ public class TestPersonaje {
 		v[1] = "Golpe Fatal";
 		Assert.assertArrayEquals(v, h.getHabilidadesRaza());
 	}
-	@Test
-	public void testSettersGettersNombreRaza(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setNombreRaza("Prueba");
-		Assert.assertEquals("Prueba", h.getNombreRaza());
-	}
+	
 	@Test
 	public void testSettersGettersNombre(){
 		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
 		h.setNombre("Obama");
 		Assert.assertEquals("Obama", h.getNombre());
 	}
-	@Test
-	public void testSettersGettersMagia(){
-		Humano h = new Humano("Nico",100,100,25,25,25,new Guerrero(),0,1,1);
-		h.setMagia(69);
-		Assert.assertEquals(69, h.getMagia());
-	}
-	
-	
 	
 	@Test
 	public void testSettersGettersHabilidadesCasta(){
@@ -137,7 +124,7 @@ public class TestPersonaje {
 		h.serAtacado(50);
 		Assert.assertEquals(h.getSalud(), 75);		
 		h.restablecerSalud();
-		Assert.assertEquals(h.getSalud(), h.getSaludTope());
+		Assert.assertEquals(h.getSalud(), h.getSaludTotal());
 	}
 	@Test
 	public void testRestablecerEnergia(){

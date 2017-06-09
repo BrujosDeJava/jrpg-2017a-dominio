@@ -73,11 +73,7 @@ public class Guerrero extends Casta {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
 			caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
 			if (atacado instanceof Personaje) {
-				int defensaOriginal = ((Personaje) atacado).getDefensa();
-				
-				((Personaje) atacado).aumentarDefensa( - ((Personaje)atacado).getDefensa() );
-				if (atacado.serAtacado(caster.ataque) > 0) {
-					((Personaje) atacado).aumentarDefensa(defensaOriginal);
+				if (atacado.serAtacado(caster.ataque+((Personaje) atacado).getDefensaTotal())> 0) {
 					return true;
 				}
 			} 

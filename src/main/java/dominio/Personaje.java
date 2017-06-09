@@ -50,81 +50,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   private RandomNumberGenerator randgen = new MyRandom();
   
-  private PaquetePersonajeDom pp;
-  
-  public void actualizarEstado(PaquetePersonajeDom pp){
-	  
-	   
-	  //setFuerza, --> es de Unidad
-	  super.fuerza = pp.getFuerza();	 
-	  
-	  this.ataque = calcularPuntosDeAtaque();
-	  
-	  //setDestreza, 
-	  this.destreza = pp.getDestreza();
-	  
-	  super.defensa = this.calcularPuntosDeDefensa();
-	  
-	  //setInteligencia, 
-	  this.inteligencia = pp.getInteligencia();
-	  
-	  this.magia = this.calcularPuntosDeMagia();
-	  
-	  //setCasta, pp.getCasta devuelve un String 
-	  cambiaCasta(pp.getCasta());
-	  
-	  //setExperiencia,*
-	  this.experiencia = pp.getExperiencia();
-	  
-	  //setNivel,
-	  super.nivel = pp.getNivel();
-	
-	  //setIdPersonaje*,
-	  this.idPersonaje = pp.getId();
-	  
-	  //setDefensa,
-	  //this.defensa = pp.getDestreza();
-	  
-	  //setSaludTope*,
-	  this.saludTope = pp.getSaludTope();
-	  
-	  //setEnergiaTope.
-	  this.energiaTope = pp.getEnergiaTope();
-  }
-  
-  private void cambiaCasta(String casta2) {
-	
-	  switch(casta2){
-	  
-	  case "Asesino" : this.casta = new Asesino();
-	  					break;
-	  case "Hechicero" : this.casta = new Hechicero();
-	  					break;
-	  case "Guerrero" : this.casta = new Guerrero();
-	  break;
-	  default : this.casta = null;
-	  
-	  }
-	
-  }
-
-  public void actualizarPorAtaque(PaqueteAtacar pa){
-	  
-	  if( this.idPersonaje == pa.getIdEnemigo() ){
-	   	// setSalud,
-	   super.salud = pa.getNuevaSaludEnemigo();
-		//setEnergia,* es de Unidad
-	   this.energia = pa.getNuevaEnergiaEnemigo();
-	  }
-	  //
-	  if( this.idPersonaje == pa.getId() ){
-		   	// setSalud,
-		   super.salud = pa.getNuevaSaludPersonaje();
-			//setEnergia,* es de Unidad
-		   this.energia = pa.getNuevaEnergiaPersonaje();
-		  }
-  }
-  
   /** El siguiente método retorna las habilidades de raza que posee el personaje actual */
   public String[] getHabilidadesRaza() {
     return habilidadesRaza;
@@ -159,10 +84,9 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     this.idPersonaje = id;
     experiencia = 0;
     this.nivel=1; 
-    this.setFuerza(FUERZA_BASE);
+    super.fuerza+=FUERZA_BASE + BONUS_POR_CASTA;
     inteligencia = INTELIGENCIA_BASE;
     destreza = DESTREZA_BASE;
-    this.setFuerza(this.getFuerza() + BONUS_POR_CASTA);
     x = 0;
     y = 0;
     saludTope = TOPE_SALUD+AUMENTO_SALUD;
@@ -187,7 +111,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     this.idPersonaje = id;
     experiencia = 0;
     this.nivel = 1;
-    this.setFuerza( FUERZA_BASE);
+    super.fuerza+=FUERZA_BASE;
     inteligencia = INTELIGENCIA_BASE;
     destreza = DESTREZA_BASE;
     inteligencia += BONUS_POR_CASTA;
@@ -215,7 +139,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     this.idPersonaje = id;
     experiencia = 0;
     this.nivel = 1;
-    this.setFuerza(FUERZA_BASE);
+    super.fuerza+=FUERZA_BASE;
     inteligencia = INTELIGENCIA_BASE;
     destreza = DESTREZA_BASE;
     destreza += BONUS_POR_CASTA;
@@ -257,22 +181,17 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     habilidadesRaza =nomHabilidadesRaza;
   }
   
-  /** El siguiente metodo retorna el mombre de la raza del personaje */
+  
+  public int getAtaque() {
+	return ataque;
+}
+
+/** El siguiente metodo retorna el mombre de la raza del personaje */
   public String getNombreRaza() {
     return nombreRaza;
   }
   
-  /** El siguiente metodo establece el mombre de la raza del personaje */
-  
-  public void setNombreRaza(final String nombreRaza) {
-    this.nombreRaza = nombreRaza;
-  }
-  
-  
-  /** El siguiente metodo retorna el nivel de ataque del personaje */
-  public int getAtaque() {
-    return ataque+inventario.getAtaque();
-  }
+
   
   /** El siguiente metodo establece el nivel de ataquea del personaje */
   public void setAtaque(final int ataque) {
@@ -282,11 +201,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** El siguiente metodo retorna el nivel de magia del personaje */
   public int getMagia() {
     return magia;
-  }
-  
-  /** El siguiente metodo establece el nivel de magia del personaje */
-  public void setMagia(final int magia) {
-    this.magia = magia;
   }
   
   /** El siguiente metodo retorna el tipo de alianza a la que pertenece el personaje */
@@ -305,93 +219,40 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     return energia;
   }
   
-   /** El siguiente metodo establece el nivel de energa del personaje */
-  
-  /*
-  public void setEnergia(final int energia) {
-    this.energia = energia; 
-  }
-  */
-  
   /** El siguiente metodo retorna el nivel de destreza del personaje */
   public int getDestreza() {
     return destreza;
   }
   
-  /** El siguiente metodo establece el nivel de destreza del personaje */
-  /*
-  public void setDestreza(final int destreza) {
-    this.destreza = destreza;
-  }
-  */
   /** El siguiente metodo retorna el nivel de inteligencia del personaje */
   public int getInteligencia() {
     return inteligencia;
   }
   
-  /** El siguiente metodo establece el nivel de inteligencia del personaje */
-  /*
-  public void setInteligencia(final int inteligencia) {
-    this.inteligencia = inteligencia;
-  }
-  */
   /** El siguiente metodo retorna el tipo de casta a la que pertenece el personaje */
   public Casta getCasta() {
     return casta;
   }
   
-  /** El siguiente metodo establece el tipo de casta a la que pertenece el personaje */
-  /*
-  public void setCasta(final Casta casta) {
-    this.casta = casta; 
-  }
-  */
   /** El siguiente metodo retorna el nivel de experiencia del personaje */
   public int getExperiencia() {
     return experiencia;
   }
   
-  /** El siguiente metodo establece  el nivel de experiencia del personaje */
-  /*
-  public void setExperiencia(final int experiencia) {
-    this.experiencia = experiencia;
-  }
- */   
   /** El siguiente metodo retorna el id del personaje */
   public int getIdPersonaje() {
     return idPersonaje;
   }
   
-  /** El siguiente metodo establece el id del personaje */
-  /*
-  public void setIdPersonaje(final int idPersonaje) {
-    this.idPersonaje = idPersonaje;
-  }
-  */
   /** El siguiente metodo retorna el nivel máximo de salud que puede tener el personaje */
   public int getSaludTope() {
     return saludTope;
   }
   
-  /** El siguiente metodo establece el nivel máximo de salud que puede tener el personaje */
-  /*
-   * 
-  public void setSaludTope(final int saludTope) {
-    this.saludTope = saludTope;
-  }
-  
-  */
   /** El siguiente metodo retorna el nivel máximo de energia que puede tener el personaje */
   public int getEnergiaTope() {
     return energiaTope;
   }
-  
-  /** El siguiente metodo establece el nivel máximo de energia que puede tener el personaje */
-  /*
-  public void setEnergiaTope(final int energiaTope) {
-    this.energiaTope = energiaTope;
-  }
-  */
   /** El siguiente metodo permite al personaje atacar  a un enemigo sollo si cuenta con el nivel
      * de salud distinto de cero
      * */
@@ -400,10 +261,10 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
       return 0;
     }
                                 
-    if (randgen.randomDouble() <= this.casta.getProbabilidadGolpeCritico() + this.destreza / 1000) {
+    if (randgen.randomDouble() <= this.casta.getProbabilidadGolpeCritico() + (this.destreza+inventario.getDex())/ 1000) {
       return atacado.serAtacado(this.golpe_critico());
     } else {
-      return atacado.serAtacado(this.ataque);
+      return atacado.serAtacado(this.getAtaqueTotal());
     }
 
     //return 0;
@@ -411,7 +272,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   /** El siguiente método permite al personaje dar un golpe crítico al enemigo */
   public int golpe_critico() {
-    return (int) (this.ataque * this.getCasta().getDanoCritico());
+    return (int) (this.getAtaqueTotal()* this.getCasta().getDanoCritico());
   }
 
   /** El siguiente define lo que tiene que realizar el personaje despues del turno*/
@@ -445,12 +306,12 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
   /** El siguiente metodo recarga el nivel de salud del personaje al máximo */
   public void restablecerSalud() {
-    this.salud = this.saludTope;
+    this.salud = this.getSaludTotal();
   }
   
   /** El siguiente metodo recarga el nivel de energía del personaje al máximo */
   public void restablecerEnergia() {
-    this.energia = this.energiaTope;
+    this.energia = this.getEnergiaTotal();
   }
 
   /** El siguiente asigna al ataque, defensa y magia los valores calculados */
@@ -468,7 +329,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** El siguiente metodo permite al enemigo atacar al personaje */
   public int serAtacado(int dano) {
     if (randgen.randomDouble() >= this.getCasta().getProbabilidadEvitarDano()) {
-      dano -= this.getDefensa();
+      dano -= this.getDefensaTotal();
       if (dano > 0) {
         if (this.getSalud() <= dano) {
           dano = this.getSalud();
@@ -488,7 +349,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * de vida que, en base al dano recibido, el atacante va a robar.
 */
   public int serRobadoSalud(int dano) {
-    dano -= this.getDefensa();
+    dano -= this.getDefensaTotal();
     if (dano <= 0) {
       return 0;
     }
@@ -505,7 +366,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * metodo que calcula la energia despues de recibir daño
 */
   public int serDesernegizado(int dano) {
-    dano -= this.getDefensa();
+    dano -= this.getDefensaTotal();
     if (dano <= 0) {
       return 0;
     }
@@ -524,19 +385,19 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * de salud que un personaje puede tener. 
 */
   public void serCurado(final int salud) {
-    if ((this.getSalud() + salud) <= this.saludTope) {
+    if ((this.getSalud() + salud) <= this.getSaludTotal()) {
       this.salud+= salud;
     } else {
-      this.salud = this.saludTope;
+      this.salud = this.getSaludTotal();
     }
   }
   
   /** El siguiente metodo permite cargar energia al personaje  */
   public void serEnergizado(final int energia) {
-    if ((this.energia + energia) <= this.energiaTope) {
+    if ((this.energia + energia) <= this.getEnergiaTotal()) {
       this.energia += energia;
     } else {
-      this.energia = this.energiaTope;
+      this.energia = this.getEnergiaTotal();
     }
   }
   
@@ -576,7 +437,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** metodo que actualiza los states sin que ests superen el tope*/
   public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
     if (this.getFuerza() + fuerza <= 200) {
-      this.setFuerza(this.getFuerza() + fuerza);
+      super.fuerza+= fuerza;
     }
     if (this.destreza + destreza <= 200) {
       this.destreza += destreza;
@@ -610,7 +471,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /** metodo que asigna la experiencia segun la tabla de niveles*/
   public boolean ganarExperiencia(final int exp) {
     this.experiencia += exp;
-
     if (experiencia >= Personaje.tablaDeNiveles[this.getNivel() + 1]) {
       subirNivel();
       return true;
@@ -660,16 +520,72 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   public void disminuirEnergia(int costeDeEnergiaHabilidades) {
-	
 	this.energia -= costeDeEnergiaHabilidades;
-	
   }
 
-  public void aumentarDefensa(int defensa ) {
-	
+  public void aumentarDefensa(int defensa) {
 	   super.defensa += defensa;
-	   
+  }
+
+  public void aumentarAtaque(int ataque){
+	this.ataque += ataque;
+  }
+  public void actualizarEstado(PaquetePersonajeDom pp){
+	  super.fuerza = pp.getFuerza();	 
+	  this.destreza = pp.getDestreza();
+	  this.inteligencia = pp.getInteligencia();
+	  this.modificarAtributos();
+	  cambiaCasta(pp.getCasta());
+	  this.experiencia = pp.getExperiencia();
+	  super.nivel = pp.getNivel();
+	  this.idPersonaje = pp.getId();
+	  this.saludTope = pp.getSaludTope();
+	  this.energiaTope = pp.getEnergiaTope();
   }
   
+  private void cambiaCasta(String casta2) {
+	  switch(casta2){
+	  case "Asesino" : 
+		  this.casta = new Asesino();
+	  break;
+	  case "Hechicero" : 
+		  this.casta = new Hechicero();
+	  break;
+	  case "Guerrero" : 
+		  this.casta = new Guerrero();
+	  break;
+	  default : 
+		  this.casta = null;
+	  }
+  }
+
+  public void actualizarPorAtaque(PaqueteAtacar pa){
+	  if( this.idPersonaje == pa.getIdEnemigo() ){
+	   super.salud = pa.getNuevaSaludEnemigo();
+	   this.energia = pa.getNuevaEnergiaEnemigo();
+	  }
+	  if( this.idPersonaje == pa.getId() ){
+		   super.salud = pa.getNuevaSaludPersonaje();
+		   this.energia = pa.getNuevaEnergiaPersonaje();
+		  }
+  }
+  public int getDefensaTotal() {
+	    return super.defensa+inventario.getDefensa();
+	    }
   
+  public int getAtaqueTotal() {
+	  	return ataque+inventario.getAtaque();
+	  	}
+  
+  public int getMagiaTotal() {
+	    return magia+inventario.getMagia();
+	  }
+  
+  public int getSaludTotal() {
+	    return saludTope+inventario.getSalud();
+	  }
+  
+  public int getEnergiaTotal() {
+	    return energiaTope+inventario.getEnergia();
+	  }
 }

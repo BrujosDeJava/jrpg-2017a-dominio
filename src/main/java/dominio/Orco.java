@@ -52,7 +52,7 @@ public class Orco extends Personaje {
 	public boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
 			this.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-			if (atacado.serAtacado(this.getDefensa() * 2) > 0) {
+			if (atacado.serAtacado(this.getDefensaTotal() * 2) > 0) {
         return true;
       }
 		}

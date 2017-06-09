@@ -11,9 +11,9 @@ public class TestAtributos {
 	public void testIncrementarFuerza() {
 		Humano h = new Humano("Nicolas", new Guerrero(), 1);
 		
-		Assert.assertEquals(h.getAtaque(), 22);
+		Assert.assertEquals(h.getAtaqueTotal(), 22);
 		h.AsignarPuntosSkills(10, 0, 0);
-		Assert.assertEquals(h.getAtaque(), 37);
+		Assert.assertEquals(h.getAtaqueTotal(), 37);
 	}
 
 	@Test

@@ -16,9 +16,9 @@ public class TestHumano {
 		Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 
-		Assert.assertEquals(e.getAtaque(), 37);
+		Assert.assertEquals(e.getAtaqueTotal(), 37);
 		h.habilidadRaza1(e);
-		Assert.assertTrue(e.getAtaque() > 37);
+		Assert.assertTrue(e.getAtaqueTotal() > 37);
 	}
 	@Test
 	public void testGolpeFatal() {
@@ -48,9 +48,9 @@ public class TestHumano {
 		Humano h = new Humano("Nico", 100, 0, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
 		Elfo e = new Elfo("Nico", 100, 100, 25, 20, 30, new Asesino(0.2, 0.3, 1.5), 0, 3, 1);
 		Assert.assertEquals(h.getEnergia(), 0);
-		Assert.assertEquals(e.getAtaque(), 37);
+		Assert.assertEquals(e.getAtaqueTotal(), 37);
 		h.habilidadRaza1(e);
-		Assert.assertFalse(e.getAtaque() > 37);
+		Assert.assertFalse(e.getAtaqueTotal() > 37);
 		Assert.assertEquals(e.getSalud(), 100);
 		h.habilidadRaza2(e);
 		Assert.assertEquals(e.getSalud(), 100);

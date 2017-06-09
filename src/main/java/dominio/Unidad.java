@@ -10,11 +10,6 @@ public abstract class Unidad {
 	
 	
 	
-	/** Este metodo sirve para modificar la fuerza del NPC*/
-	public void setFuerza(final int fuerza) {
-		this.fuerza = fuerza;
-	}
-	
 	/** Este metodo devuelve la fuerza del NPC*/
 	public int getFuerza() {
 		return fuerza;
@@ -34,33 +29,16 @@ public abstract class Unidad {
 	public int getNivel() {
 		return nivel;
 	}
-/*
-	/** Este metodo sirve para modificar el nivel del NPC
-	public void setNivel(final int nivel) {
-		this.nivel = nivel;
-	}
-*/	
 	
 	/** El siguiente metodo establece el nivel de salud del personaje */
 	 public int getSalud() {
 	   return salud;
 	 }
-/*	  
-	 /** El siguiente metodo establece el nivel de salud del personaje
-	 public void setSalud(final int salud) {
-	   this.salud = salud;
-	 }
-*/	 
+
 	 /** Este metodo devuelve la defensa del NPC*/
 	 public int getDefensa() {
 		return defensa;
 	 }
-/*    
-	 /** Este medoto sirve para modificar la defensa del NPC
-	 public void setDefensa(final int defensa) {
-			this.defensa = defensa;
-	 }
-*/	 
 	 public Unidad(int salud, String nombre, int fuerza, int nivel){
 		 
 		 this.salud = salud;

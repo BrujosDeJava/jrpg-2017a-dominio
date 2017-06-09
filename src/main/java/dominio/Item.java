@@ -6,6 +6,7 @@ public class Item {
 	private int fuerza;
 	private int dex;
 	private int inteligencia;
+	private int magia;
 	private int ataque;
 	private int energia;
 	private int defensa;
@@ -17,6 +18,13 @@ public class Item {
 		this.nombre = nombre;
 	}
 
+	
+	public int getMagia() {
+		return magia;
+	}
+	public void setMagia(int magia) {
+		this.magia = magia;
+	}
 	public int getSalud() {
 		return salud;
 	}
