@@ -596,4 +596,12 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   public void recibirObjeto(Item o){
 	  inventario.añadir(o);
   }
+
+public void setEnergia(int energia) {
+	this.energia = energia;
+}
+public void setSalud(int salud) {
+	this.energia = salud;
+}
+  
 }
