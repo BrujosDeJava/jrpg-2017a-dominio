@@ -3,7 +3,6 @@ package tests_dominio;
 import org.junit.Test;
 
 import dominio.*;
-import mensajeria.PaquetePersonajeDom;
 
 import org.junit.Assert;
 

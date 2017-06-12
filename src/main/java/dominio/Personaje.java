@@ -3,7 +3,6 @@ package dominio;
 import java.io.Serializable;
 
 import mensajeria.PaqueteAtacar;
-import mensajeria.PaquetePersonajeDom;
 
 /**
     La clase "Personaje" es la que se encargara de administrar los
@@ -261,7 +260,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
       return 0;
     }
                                 
-    if (randgen.randomDouble() <= this.casta.getProbabilidadGolpeCritico() + (this.destreza+inventario.getDex())/ 1000) {
+    if (randgen.randomDouble() <= this.casta.getProbabilidadGolpeCritico() + (this.destreza)/ 1000) {
       return atacado.serAtacado(this.golpe_critico());
     } else {
       return atacado.serAtacado(this.getAtaqueTotal());
@@ -519,18 +518,18 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 	this.randgen = randgen;
   }
 
-  public void disminuirEnergia(int costeDeEnergiaHabilidades) {
+  protected void disminuirEnergia(int costeDeEnergiaHabilidades) {
 	this.energia -= costeDeEnergiaHabilidades;
   }
 
-  public void aumentarDefensa(int defensa) {
+  protected void aumentarDefensa(int defensa) {
 	   super.defensa += defensa;
   }
 
-  public void aumentarAtaque(int ataque){
+  protected void aumentarAtaque(int ataque){
 	this.ataque += ataque;
   }
-  public void actualizarEstado(PaquetePersonajeDom pp){
+ /* public void actualizarEstado(PaquetePersonajeDom pp){
 	  super.fuerza = pp.getFuerza();	 
 	  this.destreza = pp.getDestreza();
 	  this.inteligencia = pp.getInteligencia();
@@ -559,9 +558,9 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 	  default : 
 		  this.casta = null;
 	  }
-  }
+  }*/
 
-  public void actualizarPorAtaque(PaqueteAtacar pa){
+  public void actualizarPorAtaque(PaqueteAtacar pa) {
 	  if( this.idPersonaje == pa.getIdEnemigo() ){
 	   super.salud = pa.getNuevaSaludEnemigo();
 	   this.energia = pa.getNuevaEnergiaEnemigo();
@@ -590,18 +589,16 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   public int getEnergiaTotal() {
 	    return energiaTope+inventario.getEnergia();
 	  }
-  public Item otorgarItem(int n){
-	  return Item.generarItem(n);
-  }
+  public Item otorgarItem(int n) {
+	    return new Item(n);
+	  }
   public void recibirObjeto(Item o){
 	  inventario.añadir(o);
   }
-
-public void setEnergia(int energia) {
-	this.energia = energia;
-}
-public void setSalud(int salud) {
-	this.energia = salud;
-}
   
+public Inventario getInventario() {
+	return inventario;
+}
+	
+
 }

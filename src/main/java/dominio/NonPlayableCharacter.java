@@ -140,6 +140,6 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
   }
 
   public Item otorgarItem(int n) {
-    return Item.generarItem(n);
+    return new Item(n);
   }
 }
