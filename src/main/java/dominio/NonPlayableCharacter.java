@@ -51,7 +51,7 @@ public class NonPlayableCharacter extends Unidad implements Peleable {
         this.defensa = 2 + (nivel - 1) * 1;
         break;
       case 1:
-        super.fuerza=( FUERZA_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_1);  // 50%.
+        super.fuerza = (FUERZA_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPLICADOR_FUERZA_DIFICULTAD_1);  // 50%.
         this.salud = (SALUD_BASE_DIFICULTAD_1 + (nivel - 1) * MULTIPICADOR_SALUD_DIFICULTAD_1);
         this.defensa = (DEFENSA_BASE_DIFICULTAD_1 + (nivel - 1) * 2);
         break;

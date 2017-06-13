@@ -18,10 +18,10 @@ public class Item {
   }
 
   public Item(int n) {
-	this.id =n;
-}
+    this.id = n;
+  }
 
-public int getMagia() {
+  public int getMagia() {
     return magia;
   }
 
@@ -65,22 +65,22 @@ public int getMagia() {
     return nombre;
   }
 
-public int getId() {
-	return id;
-}
+  public int getId() {
+    return id;
+  }
 
-public void setId(int id) {
-	this.id = id;
-}
+  public void setId(int id) {
+    this.id = id;
+  }
 
-public void setNombre(String string) {
-	this.nombre=string;
-}
+  public void setNombre(String string) {
+    this.nombre = string;
+  }
 
-@Override
-public String toString() {
-	return "Item [nombre=" + nombre + ", salud=" + salud + ", magia=" + magia + ", ataque=" + ataque + ", energia="
-			+ energia + ", defensa=" + defensa + ", id=" + id + "]";
-}
-  
+  @Override
+  public String toString() {
+    return "Item [nombre=" + nombre + ", salud=" + salud + ", magia=" + magia + ", ataque=" + ataque + ", energia="
+        + energia + ", defensa=" + defensa + ", id=" + id + "]";
+  }
+
 }

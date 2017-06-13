@@ -34,20 +34,19 @@ public class Inventario extends Item {
     this.setMagia(this.getMagia() - o.getMagia());
   }
 
-public List<Item> getInv() {
-	return inv;
-}
+  public List<Item> getInv() {
+    return inv;
+  }
 
-@Override
-public String toString() {
-	String aux = "";
-	for(int i=0;i<inv.size();i++){
-		if(inv.get(i)!=null)
-		aux+=inv.get(i).toString();
-	}
-	return aux;
-}
-  
-  
-}
+  @Override
+  public String toString() {
+    String aux = "";
+    for (int i = 0; i < inv.size(); i++) {
+      if (inv.get(i) != null) {        
+        aux += inv.get(i).toString();
+      }
+    }
+    return aux;
+  }
 
+}

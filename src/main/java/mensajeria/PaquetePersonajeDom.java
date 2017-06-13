@@ -4,136 +4,121 @@ import java.io.Serializable;
 
 public class PaquetePersonajeDom extends Paquete implements Serializable, Cloneable {
 
-	private int id;
-	private int idMapa;
-	private String casta;
-	private String nombre;
-	private String raza;
-	private int saludTope;
-	private int energiaTope;
-	private int fuerza;
-	private int destreza;
-	private int inteligencia;
-	private int nivel;
-	private int experiencia;
+  private int id;
+  private int idMapa;
+  private String casta;
+  private String nombre;
+  private String raza;
+  private int saludTope;
+  private int energiaTope;
+  private int fuerza;
+  private int destreza;
+  private int inteligencia;
+  private int nivel;
+  private int experiencia;
 
+  public int getMapa() {
+    return idMapa;
+  }
 
-	public int getMapa(){
-		return idMapa;
-	}
-	
-	public void setMapa(int mapa){
-		idMapa = mapa;
-	}
-	
-	public int getNivel() {
-		return nivel;
-	}
+  public void setMapa(int mapa) {
+    idMapa = mapa;
+  }
 
-	public void setNivel(int nivel) {
-		this.nivel = nivel;
-	}
+  public int getNivel() {
+    return nivel;
+  }
 
-	public int getExperiencia() {
-		return experiencia;
-	}
+  public void setNivel(int nivel) {
+    this.nivel = nivel;
+  }
 
-	public void setExperiencia(int experiencia) {
-		this.experiencia = experiencia;
-	}
+  public int getExperiencia() {
+    return experiencia;
+  }
 
-	public int getId() {
-		return id;
-	}
+  public void setExperiencia(int experiencia) {
+    this.experiencia = experiencia;
+  }
 
+  public int getId() {
+    return id;
+  }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+  public void setId(int id) {
+    this.id = id;
+  }
 
+  public String getCasta() {
+    return casta;
+  }
 
-	public String getCasta() {
-		return casta;
-	}
+  public void setCasta(String casta) {
+    this.casta = casta;
+  }
 
+  public String getNombre() {
+    return nombre;
+  }
 
-	public void setCasta(String casta) {
-		this.casta = casta;
-	}
+  public void setNombre(String nombre) {
+    this.nombre = nombre;
+  }
 
-	public String getNombre() {
-		return nombre;
-	}
+  public String getRaza() {
+    return raza;
+  }
 
+  public void setRaza(String raza) {
+    this.raza = raza;
+  }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+  public int getSaludTope() {
+    return saludTope;
+  }
 
+  public void setSaludTope(int saludTope) {
+    this.saludTope = saludTope;
+  }
 
-	public String getRaza() {
-		return raza;
-	}
+  public int getEnergiaTope() {
+    return energiaTope;
+  }
 
+  public void setEnergiaTope(int energiaTope) {
+    this.energiaTope = energiaTope;
+  }
 
-	public void setRaza(String raza) {
-		this.raza = raza;
-	}
+  public int getFuerza() {
+    return fuerza;
+  }
 
+  public void setFuerza(int fuerza) {
+    this.fuerza = fuerza;
+  }
 
-	public int getSaludTope() {
-		return saludTope;
-	}
+  public int getDestreza() {
+    return destreza;
+  }
 
+  public void setDestreza(int destreza) {
+    this.destreza = destreza;
+  }
 
-	public void setSaludTope(int saludTope) {
-		this.saludTope = saludTope;
-	}
+  public int getInteligencia() {
+    return inteligencia;
+  }
 
+  public void setInteligencia(int inteligencia) {
+    this.inteligencia = inteligencia;
+  }
 
-	public int getEnergiaTope() {
-		return energiaTope;
-	}
-
-
-	public void setEnergiaTope(int energiaTope) {
-		this.energiaTope = energiaTope;
-	}
-
-
-	public int getFuerza() {
-		return fuerza;
-	}
-
-
-	public void setFuerza(int fuerza) {
-		this.fuerza = fuerza;
-	}
-
-
-	public int getDestreza() {
-		return destreza;
-	}
-
-
-	public void setDestreza(int destreza) {
-		this.destreza = destreza;
-	}
-
-
-	public int getInteligencia() {
-		return inteligencia;
-	}
-
-
-	public void setInteligencia(int inteligencia) {
-		this.inteligencia = inteligencia;
-	}
-
-	public Object clone() {
-		Object obj = null;
-		obj = super.clone();
-		return obj;
-	}
+  /**
+   * Falta JavaDoc.
+   */
+  public Object clone() {
+    Object obj = null;
+    obj = super.clone();
+    return obj;
+  }
 }
-
