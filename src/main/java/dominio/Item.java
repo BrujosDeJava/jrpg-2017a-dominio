@@ -8,18 +8,34 @@ public class Item {
   private int energia;
   private int defensa;
   private int id;
-
+  private int tipo;
   public Item() {
   }
   
+  public Item(int n) {
+	    this.id = n;
+	  }
+
   public Item(String nombre) {
     super();
     this.nombre = nombre;
   }
 
-  public Item(int n) {
-    this.id = n;
-  }
+  
+  public Item(int i, int j) {
+	this.id=i;
+	this.tipo=j;
+}
+
+public int getTipo() {
+	return tipo;
+}
+
+public void setTipo(int tipo) {
+	this.tipo = tipo;
+}
+
+
 
   public int getMagia() {
     return magia;
@@ -76,11 +92,27 @@ public class Item {
   public void setNombre(String string) {
     this.nombre = string;
   }
-
-  @Override
-  public String toString() {
-    return "Item [nombre=" + nombre + ", salud=" + salud + ", magia=" + magia + ", ataque=" + ataque + ", energia="
-        + energia + ", defensa=" + defensa + ", id=" + id + "]";
+  
+  
+  public static Item generarItem(){
+	  Item i = new Item();
+	  int n = (int)Math.round(Math.random()*12);
+	  if(n==0)
+		  n=1;
+	  i.setId(n);
+	  i.setTipo(n%6);
+	  if(i.getTipo()==0)
+		  i.setTipo(6);
+	  return i;
   }
+
+@Override
+public String toString() {
+	return "Item [nombre=" + nombre + ", salud=" + salud + ", magia=" + magia + ", ataque=" + ataque + ", energia="
+			+ energia + ", defensa=" + defensa + ", id=" + id + ", tipo=" + tipo + "]";
+}
+
+
+  
 
 }

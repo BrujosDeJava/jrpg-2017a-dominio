@@ -1,6 +1,7 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 import mensajeria.PaqueteAtacar;
 
@@ -14,7 +15,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /**
    * 
    */
-  private static Inventario inventario;
+  private Inventario inventario;
   private static final long serialVersionUID = 1L;
   private static final int TAMANO_ARRAY_NIVELES = 101;
   private static final int SALTO_EXPERIENCIA_ENTRE_NIVELES = 50;
@@ -598,6 +599,19 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   
 public Inventario getInventario() {
 	return inventario;
+}
+
+public void setInventario(Inventario inv) {
+	inventario = inv;
+}
+
+@Override
+public String toString() {
+	return "Personaje [energia=" + energia + ", ataque=" + ataque + ", magia=" + magia + ", nombreRaza=" + nombreRaza
+			+ ", saludTope=" + saludTope + ", energiaTope=" + energiaTope + ", destreza=" + destreza + ", inteligencia="
+			+ inteligencia + ", casta=" + casta + ", x=" + x + ", y=" + y + ", experiencia=" + experiencia
+			+ ", idPersonaje=" + idPersonaje + ", clan=" + clan + ", habilidadesRaza="
+			+ Arrays.toString(habilidadesRaza) + ", randgen=" + randgen +" "+ inventario+"]";
 }
 	
 

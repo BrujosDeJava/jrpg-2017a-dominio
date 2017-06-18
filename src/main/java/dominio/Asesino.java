@@ -41,7 +41,7 @@ public class Asesino extends Casta {
   public boolean habilidad1(final Personaje caster, final Peleable atacado) {
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-      if (atacado.serAtacado((int) (caster.ataque * caster.getCasta().getDanoCritico())) > 0) {
+      if (atacado.serAtacado((int) (caster.getAtaqueTotal() * caster.getCasta().getDanoCritico())) > 0) {
         return true;
       }
     }

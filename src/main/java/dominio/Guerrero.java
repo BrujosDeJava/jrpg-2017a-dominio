@@ -40,7 +40,7 @@ public class Guerrero extends Casta {
   public boolean habilidad1(final Personaje caster, final Peleable atacado) { 
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-      if (atacado.serAtacado(caster.ataque * 2) > 0) {
+      if (atacado.serAtacado(caster.getAtaqueTotal() * 2) > 0) {
         return true;
       }
     }
@@ -53,7 +53,7 @@ public class Guerrero extends Casta {
   public boolean habilidad2(final Personaje caster, final Peleable atacado) { 
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-      caster.aumentarDefensa(caster.magia);
+      caster.aumentarDefensa(caster.getMagiaTotal());
       return true;
     }
     return false;
@@ -69,7 +69,7 @@ public class Guerrero extends Casta {
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
       if (atacado instanceof Personaje) {
-        if (atacado.serAtacado(caster.ataque + ((Personaje) atacado).getDefensaTotal()) > 0) {
+        if (atacado.serAtacado(caster.getAtaqueTotal() + ((Personaje) atacado).getDefensaTotal()) > 0) {
           return true;
         }
       } 

@@ -55,7 +55,7 @@ public class Humano extends Personaje {
   public boolean habilidadRaza1(final Peleable atacado) {
     if (this.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       this.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-      atacado.setAtaque(atacado.getAtaqueTotal() + this.getMagia());
+      atacado.setAtaque(((Personaje)atacado).getAtaque() + this.getMagiaTotal());
       return true;
     }
     return false;

@@ -40,7 +40,7 @@ public class Hechicero extends Casta {
   public boolean habilidad1(final Personaje caster, final Peleable atacado) {
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-      if (atacado.serAtacado((int) (caster.calcularPuntosDeMagia() * MULTIPLICADOR_HABILIDAD_1)) > 0) {
+      if (atacado.serAtacado((int) (caster.getMagiaTotal() * MULTIPLICADOR_HABILIDAD_1)) > 0) {
         return true;
       }
     }
@@ -55,7 +55,7 @@ public class Hechicero extends Casta {
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
       if (aliado instanceof Personaje) {
-        ((Personaje) aliado).serCurado(caster.calcularPuntosDeMagia());
+        ((Personaje) aliado).serCurado(caster.getMagiaTotal());
         return true;
       }
     }
@@ -70,8 +70,8 @@ public class Hechicero extends Casta {
     if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
       caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
       if (atacado instanceof Personaje) {
-        int energiaRobada = ((Personaje) atacado).serDesernegizado(caster.calcularPuntosDeMagia());
-        int saludRobada = ((Personaje) atacado).serRobadoSalud(caster.calcularPuntosDeMagia() / 2);
+        int energiaRobada = ((Personaje) atacado).serDesernegizado(caster.getMagiaTotal());
+        int saludRobada = ((Personaje) atacado).serRobadoSalud(caster.getMagiaTotal() / 2);
         caster.serEnergizado(energiaRobada);
         caster.serCurado(saludRobada);
         return true;
