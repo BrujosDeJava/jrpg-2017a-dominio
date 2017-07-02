@@ -18,6 +18,7 @@ public class TestElfo {
     Assert.assertEquals(h.getSalud(), 100);
     e.habilidadRaza1(h);
     Assert.assertTrue(h.getSalud() < 100);
+    System.out.println(e.tablaDeNiveles);
   }
 
   @Test

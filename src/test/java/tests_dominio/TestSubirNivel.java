@@ -10,6 +10,7 @@ public class TestSubirNivel {
   @Test
   public void testSubirdeNivel() {
     Personaje.cargarTablaNivel();
+    System.out.println(Personaje.tablaDeNiveles);
     Humano h = new Humano("Nicolas", new Guerrero(), 1);
     Assert.assertTrue(h.getNivel() == 1);
     h.ganarExperiencia(50);
