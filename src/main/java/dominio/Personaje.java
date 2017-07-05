@@ -529,6 +529,8 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 
   protected void aumentarAtaque(int ataque){
 	this.ataque += ataque;
+	
+	
   }
  /* public void actualizarEstado(PaquetePersonajeDom pp){
 	  super.fuerza = pp.getFuerza();	 
