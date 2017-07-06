@@ -135,6 +135,18 @@ public String toString() {
 			+ cuerpo + ", accesorio=" + accesorio + ", arma=" + arma + "]";
 }
 
+public void desequipar(Item aDesequipar) {
+	boolean desequipado = false;
+	int i=0;
+	while(!desequipado){
+		if(aDesequipar.getId()==mochila.get(i).getId()){
+			desequipado = true;
+			mochila.remove(i);
+		}
+		i++;
+	}
+}
+
   
 
 }

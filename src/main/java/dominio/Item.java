@@ -9,7 +9,8 @@ public class Item {
   private int defensa;
   private int id;
   private int tipo;
-
+  private int duenio;
+  
   public Item() {
   }
 
@@ -101,8 +102,16 @@ public class Item {
 
   @Override
   public String toString() {
-    return "Item [nombre=" + nombre + ", salud=" + salud + ", magia=" + magia + ", ataque=" + ataque
-        + ", energia=" + energia + ", defensa=" + defensa + ", id=" + id + ", tipo=" + tipo + "]";
+	  return this.nombre;
   }
 
+  public int getDuenio() {
+	return duenio;
+  }
+
+  public void setDuenio(int duenio) {
+	this.duenio = duenio;
+  }
+
+  
 }
