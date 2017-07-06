@@ -28,7 +28,6 @@ public class Inventario extends Item {
    * Falta JavaDoc. 
    */
   public void añadir(Item o) {
-	  System.out.println("Entro añadir");
 	int type = o.getTipo();
 	switch(type){
 	case 1:
@@ -74,7 +73,6 @@ public class Inventario extends Item {
 			arma = o;
 	break;
 	default:
-		System.out.println("Entre al default");
 		return;
 	}
     this.setSalud(o.getSalud() + this.getSalud());

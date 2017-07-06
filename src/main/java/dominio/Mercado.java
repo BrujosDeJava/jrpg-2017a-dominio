@@ -2,6 +2,7 @@ package dominio;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Mercado {
@@ -17,5 +18,14 @@ public class Mercado {
 	
 	public void setMochilas(Map<Integer, ArrayList<Item>> mochilas) {
 		this.mochilas = mochilas;
+	}
+	
+	
+	public void añadir (int n, List<Item> list){
+		mochilas.put(n, (ArrayList<Item>) list);
+	}
+	
+	public void remover (int n){
+		mochilas.remove(n);
 	}
 }
