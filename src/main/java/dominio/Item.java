@@ -1,117 +1,116 @@
 package dominio;
 
 public class Item {
-  private String nombre;
-  private int salud;
-  private int magia;
-  private int ataque;
-  private int energia;
-  private int defensa;
-  private int id;
-  private int tipo;
-  private int duenio;
-  
-  public Item() {
-  }
+	private String nombre;
+	private int salud;
+	private int magia;
+	private int ataque;
+	private int energia;
+	private int defensa;
+	private int id;
+	private int tipo;
+	private int duenio;
 
-  public Item(int n) {
-    this.id = n;
-  }
+	public Item() {
+	}
 
-  public Item(String nombre) {
-    super();
-    this.nombre = nombre;
-  }
+	public Item(int n) {
+		this.id = n;
+	}
 
-  public Item(int i, int j) {
-    this.id = i;
-    this.tipo = j;
-  }
+	public Item(String nombre) {
+		super();
+		this.nombre = nombre;
+	}
 
-  public int getTipo() {
-    return tipo;
-  }
+	public Item(int i, int j) {
+		this.id = i;
+		this.tipo = j;
+	}
 
-  public void setTipo(int tipo) {
-    this.tipo = tipo;
-  }
+	public int getTipo() {
+		return tipo;
+	}
 
-  public int getMagia() {
-    return magia;
-  }
+	public void setTipo(int tipo) {
+		this.tipo = tipo;
+	}
 
-  public void setMagia(int magia) {
-    this.magia = magia;
-  }
+	public int getMagia() {
+		return magia;
+	}
 
-  public int getSalud() {
-    return salud;
-  }
+	public void setMagia(int magia) {
+		this.magia = magia;
+	}
 
-  public void setSalud(int salud) {
-    this.salud = salud;
-  }
+	public int getSalud() {
+		return salud;
+	}
 
-  public int getAtaque() {
-    return ataque;
-  }
+	public void setSalud(int salud) {
+		this.salud = salud;
+	}
 
-  public void setAtaque(int ataque) {
-    this.ataque = ataque;
-  }
+	public int getAtaque() {
+		return ataque;
+	}
 
-  public int getEnergia() {
-    return energia;
-  }
+	public void setAtaque(int ataque) {
+		this.ataque = ataque;
+	}
 
-  public void setEnergia(int energia) {
-    this.energia = energia;
-  }
+	public int getEnergia() {
+		return energia;
+	}
 
-  public int getDefensa() {
-    return defensa;
-  }
+	public void setEnergia(int energia) {
+		this.energia = energia;
+	}
 
-  public void setDefensa(int defensa) {
-    this.defensa = defensa;
-  }
+	public int getDefensa() {
+		return defensa;
+	}
 
-  public String getNombre() {
-    return nombre;
-  }
+	public void setDefensa(int defensa) {
+		this.defensa = defensa;
+	}
 
-  public int getId() {
-    return id;
-  }
+	public String getNombre() {
+		return nombre;
+	}
 
-  public void setId(int id) {
-    this.id = id;
-  }
+	public int getId() {
+		return id;
+	}
 
-  public void setNombre(String string) {
-    this.nombre = string;
-  }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-  public static int generarItem() {
+	public void setNombre(String string) {
+		this.nombre = string;
+	}
 
-    int n = (int) Math.round(Math.random() * 12);
-    if (n == 0)
-      n = 1;
-    return n;
-  }
+	public static int generarItem() {
 
-  @Override
-  public String toString() {
-	  return this.nombre;
-  }
+		int n = (int) Math.round(Math.random() * 12);
+		if (n == 0)
+			n = 1;
+		return n;
+	}
 
-  public int getDuenio() {
-	return duenio;
-  }
+	@Override
+	public String toString() {
+		return this.nombre;
+	}
 
-  public void setDuenio(int duenio) {
-	this.duenio = duenio;
-  }
+	public int getDuenio() {
+		return duenio;
+	}
 
-  
+	public void setDuenio(int duenio) {
+		this.duenio = duenio;
+	}
+
 }

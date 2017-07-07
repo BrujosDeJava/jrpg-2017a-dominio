@@ -6,26 +6,25 @@ import java.util.List;
 import java.util.Map;
 
 public class Mercado {
-	private Map<Integer,ArrayList<Item>> mochilas;
-	
-	public Mercado(){
-		this.mochilas = new HashMap<Integer,ArrayList<Item>>();
+	private Map<Integer, ArrayList<Item>> mochilas;
+
+	public Mercado() {
+		this.mochilas = new HashMap<Integer, ArrayList<Item>>();
 	}
-	
+
 	public Map<Integer, ArrayList<Item>> getMochilas() {
 		return mochilas;
 	}
-	
+
 	public void setMochilas(Map<Integer, ArrayList<Item>> mochilas) {
 		this.mochilas = mochilas;
 	}
-	
-	
-	public void añadir (int n, List<Item> list){
+
+	public void añadir(int n, List<Item> list) {
 		mochilas.put(n, (ArrayList<Item>) list);
 	}
-	
-	public void remover (int n){
+
+	public void remover(int n) {
 		mochilas.remove(n);
 	}
 }
