@@ -13,6 +13,9 @@ public class Hechicero extends Casta {
 
 	/**
 	 * Constructor parametrizado.
+	 * @param probCrit
+	 * @param evasion
+	 * @param danoCrit
 	 */
 	public Hechicero(final double probCrit, final double evasion, final double danoCrit) {
 		super(probCrit, evasion, danoCrit);
@@ -35,6 +38,9 @@ public class Hechicero extends Casta {
 	 * "habilidad1" castea la habilidad "Bola de Fuego", se debe tener una
 	 * energia mayor a 10 para poder ejecutarlo y realiza un ataque igual a 3/2
 	 * de los puntos de magia.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -49,6 +55,9 @@ public class Hechicero extends Casta {
 	/**
 	 * Con este metodo "habilidad2" el personaje "hechicero" tiene la capacidad
 	 * de curar a un aliado, para poder hacerlo su energia debe ser mayor a 10.
+	 * @return boolean
+	 * @param caster
+	 * @param aliado
 	 */
 	public boolean habilidad2(final Personaje caster, final Peleable aliado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -65,6 +74,9 @@ public class Hechicero extends Casta {
 	/**
 	 * El siguiente metodo se encargar de robar energia y salud al personaje
 	 * atacado.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {

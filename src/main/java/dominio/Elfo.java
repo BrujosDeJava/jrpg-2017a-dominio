@@ -14,6 +14,9 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Constructor parametrizado para Casta Guerrero.
+	 * @param nombre
+	 * @param guerrero
+	 * @param id
 	 */
 	public Elfo(final String nombre, final Guerrero guerrero, final int id) {
 		super(nombre, guerrero, id, 0, AUMENTO_ENERGIA_TOPE_POR_RAZA, "Elfo", habilidades);
@@ -21,6 +24,9 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Constructor parametrizado para Casta Hechicero.
+	 * @param nombre
+	 * @param hechicero
+	 * @param id
 	 */
 	public Elfo(final String nombre, final Hechicero hechicero, final int id) {
 		super(nombre, hechicero, id, 0, AUMENTO_ENERGIA_TOPE_POR_RAZA, "Elfo", habilidades);
@@ -28,6 +34,9 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Constructor parametrizado para Casta Asesino.
+	 * @param nombre
+	 * @param asesino
+	 * @param id
 	 */
 	public Elfo(final String nombre, final Asesino asesino, final int id) {
 		super(nombre, asesino, id, 0, AUMENTO_ENERGIA_TOPE_POR_RAZA, "Elfo", habilidades);
@@ -35,6 +44,16 @@ public class Elfo extends Personaje {
 
 	/**
 	 * Constructor parametrizado en donde se pasan los stats de la raza.
+	 * @param nombre
+	 * @param salud
+	 * @param energia
+	 * @param fuerza
+	 * @param destreza
+	 * @param inteligencia
+	 * @param casta
+	 * @param experiencia
+	 * @param nivel
+	 * @param idPersonaje
 	 */
 	public Elfo(final String nombre, final int salud, final int energia, final int fuerza, final int destreza,
 			final int inteligencia, final Casta casta, final int experiencia, final int nivel, final int idPersonaje) {
@@ -45,6 +64,8 @@ public class Elfo extends Personaje {
 	/**
 	 * El metodo "habilidadRaza1" correspondiente a la habilidad "Golpe Level"
 	 * se ocupa de aplicar el daño basico mas 10 por el nivel del personaje.
+	 * @return boolean
+	 * @param atacado
 	 */
 	public boolean habilidadRaza1(final Peleable atacado) {
 		if (this.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -59,6 +80,8 @@ public class Elfo extends Personaje {
 	/**
 	 * El metodo "habilidadRaza2" correspondiente a la habilidad "Ataque Bosque"
 	 * se ocupa de aplicar daño en funcion a la cantidad de magia del personaje.
+	 * @return boolean
+	 * @param atacado
 	 */
 	public boolean habilidadRaza2(final Peleable atacado) {
 		if (this.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {

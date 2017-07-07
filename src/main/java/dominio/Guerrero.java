@@ -12,6 +12,9 @@ public class Guerrero extends Casta {
 
 	/**
 	 * Constructor parametrizado.
+	 * @param probCrit
+	 * @param evasion
+	 * @param danoCrit
 	 */
 	public Guerrero(final double probCrit, final double evasion, final double danoCrit) {
 		super(probCrit, evasion, danoCrit);
@@ -34,6 +37,9 @@ public class Guerrero extends Casta {
 	 * El metodo "habilidad1" representa la habilidad "Ataque Doble" que
 	 * equivale a duplicar el ataque causado por el atacante, siempre y cuando
 	 * el atacante disponga de la suficiente energia.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -47,6 +53,9 @@ public class Guerrero extends Casta {
 
 	/**
 	 * El metodo "habilidad2" es un metodo que provoca un aumento en la defensa.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -61,6 +70,9 @@ public class Guerrero extends Casta {
 	 * El metodo "habilidad3" representa la habilidad "Ignorar Defensa" que
 	 * equivale a que la defensa de la victima se reduzca a 0 para ser atacado.
 	 * Luego de recibir el ataque, se le devuelve la defensa original.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {

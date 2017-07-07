@@ -32,6 +32,9 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Constructor parametrizado.
+	 * @param probCrit
+	 * @param evasion
+	 * @param danoCrit
 	 */
 	public Casta(final double probCrit, final double evasion, final double danoCrit) {
 		// La variable danoCrit fue modificada. Antes era dano_crit.
@@ -43,23 +46,33 @@ public abstract class Casta implements Serializable {
 	/**
 	 * Método booleano que se sobreescribe en cada casta diferente, que indica
 	 * si se cumplen las condiciones para iniciar la habilidad1.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public abstract boolean habilidad1(Personaje caster, Peleable atacado);
 
 	/**
 	 * Método booleano que se sobreescribe en cada casta diferente, que indica
 	 * si se cumplen las condiciones para iniciar la habilidad2.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public abstract boolean habilidad2(Personaje caster, Peleable atacado);
 
 	/**
 	 * Método booleano que se sobreescribe en cada casta diferente, que indica
 	 * si se cumplen las condiciones para iniciar la habilidad3.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public abstract boolean habilidad3(Personaje caster, Peleable atacado);
 
 	/**
 	 * Este metodo devuelve el nombre de la casta.
+	 * @return nombreCasta
 	 */
 	public String getNombreCasta() {
 		return this.nombreCasta;
@@ -67,14 +80,16 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo establece el nombre de la casta.
+	 * @param nombreCasta
 	 */
-	public void setNombreCasta(String nombreCasta) {
+	public void setNombreCasta(final String nombreCasta) {
 		this.nombreCasta = nombreCasta;
 	}
 
 	/**
 	 * Este metodo devuelve la descripción de las habilidades que posee la
 	 * casta.
+	 * @return habilidadesCasta
 	 */
 	public String[] getHabilidadesCasta() {
 		return habilidadesCasta;
@@ -83,6 +98,7 @@ public abstract class Casta implements Serializable {
 	/**
 	 * Este metodo devuelve la probabilidad que tiene la casta actual de golpe
 	 * critico.
+	 * @return probabilidadGolpeCritico
 	 */
 	public double getProbabilidadGolpeCritico() {
 		return probabilidadGolpeCritico;
@@ -90,6 +106,7 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo establece la probabilidad de golpe critico.
+	 * @param probabilidadGolpeCritico
 	 */
 	public void setProbabilidadGolpeCritico(final double probabilidadGolpeCritico) {
 		this.probabilidadGolpeCritico = probabilidadGolpeCritico;
@@ -97,6 +114,7 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo devuelve la probabilidad de evitar dano de la casta actual.
+	 * @return probabilidadEvitarDano
 	 */
 	public double getProbabilidadEvitarDano() {
 		return probabilidadEvitarDano;
@@ -104,6 +122,7 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo establece la probabilidad de evitar dano de la casta actual.
+	 * @param probabilidadEvitarDano
 	 */
 	public void setProbabilidadEvitarDano(double probabilidadEvitarDano) {
 		this.probabilidadEvitarDano = probabilidadEvitarDano;
@@ -111,6 +130,7 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo devuelve el valor del dano critico de la casta actual.
+	 * @return danoCritico
 	 */
 	public double getDanoCritico() {
 		return danoCritico;
@@ -118,15 +138,17 @@ public abstract class Casta implements Serializable {
 
 	/**
 	 * Este metodo establece la probabilidad de dano critico de la casta actual.
+	 * @param danoCritico
 	 */
-	public void setDanoCritico(double danoCritico) {
+	public void setDanoCritico(final double danoCritico) {
 		this.danoCritico = danoCritico;
 	}
 
 	/**
 	 * Este metodo establece las habilidades de la casta actual.
+	 * @param habilidadesCasta
 	 */
-	public void setHabilidadesCasta(String[] habilidadesCasta) {
+	public void setHabilidadesCasta(final String[] habilidadesCasta) {
 		this.habilidadesCasta = habilidadesCasta;
 	}
 }

@@ -1,9 +1,12 @@
 package dominio;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * La Clase Inventario es la que se encarga de
+ * almacenar los items recolectados en nuestro juego
+ */
 public class Inventario extends Item {
 	private List<Item> mochila;
 	private Item cabeza;
@@ -13,6 +16,9 @@ public class Inventario extends Item {
 	private Item accesorio;
 	private Item arma;
 
+	/**
+	 * Constructor por defecto de la clase Inventario
+	 */
 	public Inventario() {
 		mochila = new ArrayList<Item>();
 		cabeza = new Item(-1);
@@ -26,50 +32,56 @@ public class Inventario extends Item {
 	/**
 	 * Falta JavaDoc.
 	 */
-	public void añadir(Item o) {
+	public void añadir(final Item o) {
 		int type = o.getTipo();
 		switch (type) {
 		case 1:
 			if (cabeza.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				cabeza = o;
+			} else{
+				cabeza = o;				
+			}
 			break;
 		case 2:
 			if (manos.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				manos = o;
+			} else{
+				manos = o;				
+			}
 			break;
 		case 3:
 			if (pies.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				pies = o;
+			} else{
+				pies = o;				
+			}
 			break;
 		case 4:
 			if (cuerpo.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				cuerpo = o;
+			} else{
+				cuerpo = o;				
+			}
 			break;
 		case 5:
 			if (accesorio.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				accesorio = o;
+			} else{
+				accesorio = o;				
+			}
 			break;
 		case 6:
 			if (arma.getId() != -1) {
 				añadirMochila(o);
 				return;
-			} else
-				arma = o;
+			} else{
+				arma = o;				
+			}
 			break;
 		default:
 			return;

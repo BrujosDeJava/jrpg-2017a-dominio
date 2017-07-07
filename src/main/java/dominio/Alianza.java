@@ -11,13 +11,18 @@ public class Alianza {
 	private final String nombre;
 	private final LinkedList<Personaje> aliados;
 
-	public Alianza(String nombre) {
+	/**
+	 * Constructor de la Clase Alianza
+	 * 
+	 */
+	public Alianza(final String nombre) {
 		this.nombre = nombre;
 		this.aliados = new LinkedList<Personaje>();
 	}
 
 	/**
 	 * Este medoto devuelve el nombre de nuestra alianza actual.
+	 * @return nombre
 	 */
 	public String getNombre() {
 		return nombre;
@@ -26,13 +31,15 @@ public class Alianza {
 	/**
 	 * Este medoto devuelve el listado de los personajes aliados en la alianza
 	 * actual.
+	 * @return aliados.clone()
 	 */
 	public LinkedList<Personaje> getAliados() {
 		return (LinkedList<Personaje>) aliados.clone();
 	}
 
 	/**
-	 * Este medoto devuelve el nombre de la alianza actual. @David
+	 * Este medoto devuelve el nombre de la alianza actual.
+	 * @return nombre
 	 */
 	public String obtenerNombre() {
 		return nombre;
@@ -40,6 +47,7 @@ public class Alianza {
 
 	/**
 	 * Método "eliminarPersonaje", elimina a un personaje que ya no es aliado.
+	 * @param pj
 	 */
 	public void eliminarPersonaje(final Personaje pj) {
 		aliados.remove(pj);
@@ -47,6 +55,7 @@ public class Alianza {
 
 	/**
 	 * Método "anadirPersonaje", anade a un personaje aliado.
+	 * * @param pj
 	 */
 	public void anadirPersonaje(final Personaje pj) {
 		aliados.add(pj);

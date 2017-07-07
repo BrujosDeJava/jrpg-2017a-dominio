@@ -16,6 +16,9 @@ public class Asesino extends Casta {
 	// Constructores.
 	/**
 	 * Constructor parametrizado.
+	 * @param probCrit
+	 * @param evasion
+	 * @param danoCrit
 	 */
 	public Asesino(final double probCrit, final double evasion, final double danoCrit) {
 		super(probCrit, evasion, danoCrit);
@@ -37,11 +40,15 @@ public class Asesino extends Casta {
 	/**
 	 * El metodo "habilidad1" es el que calcula el dano por golpe critico segun
 	 * la casta del personaje.
+	 * @return boolean
+	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad1(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
 			caster.disminuirEnergia(COSTE_DE_ENERGIA_HABILIDADES);
-			if (atacado.serAtacado((int) (caster.getAtaqueTotal() * caster.getCasta().getDanoCritico())) > 0) {
+			if (atacado.serAtacado((int) (caster.getAtaqueTotal() * 
+					caster.getCasta().getDanoCritico())) > 0) {
 				return true;
 			}
 		}
@@ -51,6 +58,9 @@ public class Asesino extends Casta {
 	/**
 	 * El metodo "habilidad2" es el que aumenta la evasion segun la casta del
 	 * personaje.
+	 * @return boolean
+ 	 * @param caster
+	 * @param atacado
 	 */
 	public boolean habilidad2(final Personaje caster, final Peleable atacado) {
 		if (caster.getEnergia() > COSTE_DE_ENERGIA_HABILIDADES) {
@@ -65,7 +75,13 @@ public class Asesino extends Casta {
 		return false;
 	}
 
-	// Robar.
+	/**
+	 * El metodo "habilidad3" es la hanilidad robar, todavia
+	 * no desarrollada. 
+	 * @return boolean
+ 	 * @param caster
+	 * @param atacado
+	 */
 	public boolean habilidad3(final Personaje caster, final Peleable atacado) {
 		return false;
 	}
