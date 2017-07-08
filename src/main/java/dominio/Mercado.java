@@ -20,7 +20,7 @@ public class Mercado {
 		this.mochilas = mochilas;
 	}
 
-	public void añadir(int n, List<Item> list) {
+	public void aniadir(int n, List<Item> list) {
 		mochilas.put(n, (ArrayList<Item>) list);
 	}
 

@@ -32,7 +32,7 @@ public class Inventario extends Item {
 	/**
 	 * Falta JavaDoc.
 	 */
-	public void añadir(final Item o) {
+	public void aniadir(final Item o) {
 		int type = o.getTipo();
 		switch (type) {
 		case 1:
