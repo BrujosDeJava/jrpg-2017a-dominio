@@ -13,7 +13,7 @@ public class Alianza {
 
 	/**
 	 * Constructor de la Clase Alianza
-	 * 
+	 * @param nombre
 	 */
 	public Alianza(final String nombre) {
 		this.nombre = nombre;
@@ -55,7 +55,7 @@ public class Alianza {
 
 	/**
 	 * Método "anadirPersonaje", anade a un personaje aliado.
-	 * * @param pj
+	 * @param pj
 	 */
 	public void anadirPersonaje(final Personaje pj) {
 		aliados.add(pj);
