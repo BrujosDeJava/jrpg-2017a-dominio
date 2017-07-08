@@ -5,7 +5,7 @@ apply plugin: 'checkstyle'
 apply plugin: 'findbugs'
 apply plugin: 'jacoco'
 
-// Configuracion
+// Configuración
 
 sourceCompatibility = 1.7
 version = '0.1'
@@ -39,7 +39,7 @@ dependencies {
 // Tareas
 
 checkstyle {
-	configFile = new File(rootDir, "src/test/resources/sun_checks.xml") 
+	configFile = new File(rootDir, "src/test/resources/sun_checks.xml")
 	ignoreFailures = true
 }
 
