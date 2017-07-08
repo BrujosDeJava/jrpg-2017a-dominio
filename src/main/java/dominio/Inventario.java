@@ -139,6 +139,34 @@ public class Inventario extends Item {
 		return mochila;
 	}
 
+	public void setMochila(List<Item> mochila) {
+		this.mochila = mochila;
+	}
+
+	public void setCabeza(Item cabeza) {
+		this.cabeza = cabeza;
+	}
+
+	public void setManos(Item manos) {
+		this.manos = manos;
+	}
+
+	public void setPies(Item pies) {
+		this.pies = pies;
+	}
+
+	public void setCuerpo(Item cuerpo) {
+		this.cuerpo = cuerpo;
+	}
+
+	public void setAccesorio(Item accesorio) {
+		this.accesorio = accesorio;
+	}
+
+	public void setArma(Item arma) {
+		this.arma = arma;
+	}
+
 	@Override
 	public String toString() {
 		return "Inventario [mochila=" + mochila + ", cabeza=" + cabeza + ", manos=" + manos + ", pies=" + pies

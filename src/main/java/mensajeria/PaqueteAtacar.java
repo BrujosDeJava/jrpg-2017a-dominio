@@ -13,7 +13,7 @@ public class PaqueteAtacar extends Paquete implements Serializable, Cloneable {
 
 	/**
 	 * Falta JavaDoc.
-	 */
+	 **/
 	public PaqueteAtacar(int id, int idEnemigo, int nuevaSalud, int nuevaEnergia, int nuevaSaludEnemigo,
 			int nuevaEnergiaEnemigo) {
 		setComando(Comando.ATACAR);

@@ -10,7 +10,14 @@ import dominio.Humano;
 import dominio.MyRandomStub;
 
 public class TestHechicero {
-
+	
+  @Test
+  public void testConstructor(){
+	  Hechicero h = new Hechicero();
+	  Assert.assertEquals("Bola de Fuego", h.getHabilidadesCasta()[0]);
+	  
+  }
+	
   @Test
   public void testCurar() {
     final Humano h = new Humano("Nico", 100, 100, 55, 20, 30, new Hechicero(0.2, 0.3, 1.5), 0, 1, 1);
