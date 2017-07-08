@@ -520,6 +520,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * El metodo "serCurado" se encarga de evaluar la cantidad de vida que el
    * personaje se va a curar sin sobrepasar el tope de salud que un personaje
    * puede tener.
+   * @param salud - salud que, inicialmente, representa cuanto tiene y finalmente su salud curada.
    */
   public void serCurado(final int salud) {
     if ((this.getSalud() + salud) <= this.getSaludTotal()) {
@@ -529,6 +530,12 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     }
   }
 
+  /**
+   * El metodo "serEnergizado" se encarga de evaluar la cantidad de energia que el
+   * personaje se va a curar sin sobrepasar el tope de energia que un personaje
+   * puede tener.
+   * @param energia - energia que, inicialmente, representa cuanto tiene y finalmente su energia curada.
+   */
   /** El siguiente metodo permite cargar energia al personaje */
   public void serEnergizado(final int energia) {
     if ((this.energia + energia) <= this.getEnergiaTotal()) {
@@ -538,6 +545,10 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     }
   }
 
+  /**
+   * El metodo crearAlianza se encarga de crear una alianza nueva.
+   * @param nombreAlianza - Nombre de la alianza que vamos a crear.
+   */
   /** El siguiente metodo permite al personaje crear una alianza */
   public void crearAlianza(final String nombreAlianza) {
     this.clan = new Alianza(nombreAlianza);
