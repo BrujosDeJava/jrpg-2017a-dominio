@@ -13,7 +13,7 @@ public class Alianza {
 
 	/**
 	 * Constructor de la Clase Alianza
-	 * @param nombre
+	 * @param nombre nombre de Alianza
 	 */
 	public Alianza(final String nombre) {
 		this.nombre = nombre;

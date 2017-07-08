@@ -8,7 +8,7 @@ import dominio.Humano;
 import dominio.MyRandom;
 import dominio.Orco;
 
-public class TestDaño {
+public class TestDanio {
 
   @Test
   public void testLosMuertosNoAtacan() {

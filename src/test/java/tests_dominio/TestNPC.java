@@ -61,7 +61,7 @@ public class TestNPC {
   }
 
   @Test
-  public void testSerAtacadoyDañado() {
+  public void testSerAtacadoyDaniado() {
     NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin", 1, 1);
     Assert.assertEquals(40, goblin.getSalud());
     Assert.assertEquals(5, goblin.getDefensa());
@@ -84,7 +84,7 @@ public class TestNPC {
   }
 
   @Test
-  public void testSerAtacadoyNoDañado() {
+  public void testSerAtacadoyNoDaniado() {
     NonPlayableCharacter goblin = new NonPlayableCharacter("Goblin", 1, 1);
     Assert.assertEquals(40, goblin.getSalud());
     Assert.assertEquals(5, goblin.getDefensa());

@@ -151,15 +151,15 @@ public class TestPersonaje {
   }
 
   @Test
-  public void testSerAtacadoyNoRecibirDaño() {
+  public void testSerAtacadoyNoRecibirDanio() {
     Humano h = new Humano("Nico", 100, 100, 25, 25, 25, new Guerrero(), 0, 1, 1);
     h.setRandgen(new MyRandomStub(0.5));
     h.serAtacado(1);
     Assert.assertEquals(100, h.getSalud());
   }
-
+ 
   @Test
-  public void testSerAtacadoyRecibirDaño() {
+  public void testSerAtacadoyRecibirDanio() {
     Humano h = new Humano("Nico", 100, 100, 25, 25, 25, new Guerrero(), 0, 1, 1);
     Humano h2 = new Humano("Nico2", 100, 100, 25, 25, 25, new Guerrero(), 0, 1, 1);
     h2.setRandgen(new MyRandomStub(0.5));
