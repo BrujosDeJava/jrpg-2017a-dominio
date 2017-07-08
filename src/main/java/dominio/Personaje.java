@@ -12,6 +12,11 @@ import mensajeria.PaqueteAtacar;
  */
 public abstract class Personaje extends Unidad implements Peleable, Serializable {
 
+  private static final int MULTIPLICADOR_EXPERIENCIA = 40;
+  private static final int AUMENTO_ENERGIA_POR_LEVEL = 20;
+  private static final int AUMENTO_SALUD_POR_LEVEL = 25;
+  private static final int NIVEL_TOPE = 100;
+  private static final int TOPE_STATS = 200;
   private static final double MULTIPLICADOR_MAGIA = 1.5;
   private static final double MULTIPLICADOR_ATAQUE = 1.5;
   private static final int MINIMA_ENERGIA_PARA_CASTEAR = 10;
@@ -59,7 +64,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   private RandomNumberGenerator randgen = new MyRandom();
 
   /**
-   * El siguiente método retorna las habilidades de raza que posee el personaje
+   * El siguiente mÃ©todo retorna las habilidades de raza que posee el personaje
    * actual.
    * @return habilidadesRaza.
    */
@@ -68,7 +73,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente método retorna las habilidades de casta que posee el personaje
+   * El siguiente mÃ©todo retorna las habilidades de casta que posee el personaje
    * actual.
    * @return Devuelve las habilidades propias de una casta.
    */
@@ -77,7 +82,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente método carga la el array de niveles con las primeras dos
+   * El siguiente mÃ©todo carga la el array de niveles con las primeras dos
    * posiciones en cero y las siguientes 98 aumenta en 50 la al valor de la
    * posicion anterior.
    */
@@ -243,7 +248,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Nombre de Raza.
    * @return nombreRaza - Devuelve el nombre de la raza.
    */
-  /** El siguiente metodo retorna el mombre de la raza del personaje */
+  /** El siguiente metodo retorna el mombre de la raza del personaje. */
   public String getNombreRaza() {
     return nombreRaza;
   }
@@ -252,7 +257,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Setter de Ataque.
    * @param ataque - devuelve el ataque a retornar.
    */
-  /** El siguiente metodo establece el nivel de ataquea del personaje */
+  /** El siguiente metodo establece el nivel de ataquea del personaje. */
   public void setAtaque(final int ataque) {
     this.ataque = ataque;
   }
@@ -261,7 +266,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Magia.
    * @return magia - devuelve la magia a retornar.
    */
-  /** El siguiente metodo retorna el nivel de magia del personaje */
+  /** El siguiente metodo retorna el nivel de magia del personaje. */
   public int getMagia() {
     return magia;
   }
@@ -289,7 +294,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Energia.
    * @return energia - Devuelve la energia a retornar.
    */
-  /** El siguiente metodo retorna el nivel de energa del personaje */
+  /** El siguiente metodo retorna el nivel de energa del personaje. */
   public int getEnergia() {
     return energia;
   }
@@ -298,7 +303,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Destreza.
    * @return destreza - Devuelve la destreza a retornar.
    */
-  /** El siguiente metodo retorna el nivel de destreza del personaje */
+  /** El siguiente metodo retorna el nivel de destreza del personaje. */
   public int getDestreza() {
     return destreza;
   }
@@ -307,7 +312,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Inteligencia.
    * @return inteligencia - Devuelve la inteligencia a retornar.
    */
-  /** El siguiente metodo retorna el nivel de inteligencia del personaje */
+  /** El siguiente metodo retorna el nivel de inteligencia del personaje. */
   public int getInteligencia() {
     return inteligencia;
   }
@@ -325,7 +330,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de Experiencia.
    * @return experiencia - Devuelve la experiencia a retornar.
    */
-  /** El siguiente metodo retorna el nivel de experiencia del personaje */
+  /** El siguiente metodo retorna el nivel de experiencia del personaje. */
   public int getExperiencia() {
     return experiencia;
   }
@@ -334,13 +339,13 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Getter de idPersonaje.
    * @return idPersonaje - Devuelve el id del Personaje.
    */
-  /** El siguiente metodo retorna el id del personaje */
+  /** El siguiente metodo retorna el id del personaje. */
   public int getIdPersonaje() {
     return idPersonaje;
   }
 
   /**
-   * El siguiente metodo retorna el nivel máximo de salud que puede tener el
+   * El siguiente metodo retorna el nivel mÃ¡ximo de salud que puede tener el
    * personaje.
    * @return saludTope - Retorna el tope de salud que puede tener el personaje.
    */
@@ -349,7 +354,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente metodo retorna el nivel máximo de energia que puede tener el
+   * El siguiente metodo retorna el nivel mÃ¡ximo de energia que puede tener el
    * personaje.
    * @return energiaTope - Retorna el nivel tope de energia del personaje.
    */
@@ -377,8 +382,8 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente método permite al personaje dar un golpe crítico al enemigo.
-   * @return Este metodo devuelve el daño por golpe critico.
+   * El siguiente mÃ©todo permite al personaje dar un golpe crÃ­tico al enemigo.
+   * @return Este metodo devuelve el daÃ±o por golpe critico.
    */
   public int golpeCritico() {
     return (int) (this.getAtaqueTotal() * this.getCasta().getDanoCritico());
@@ -401,9 +406,9 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente metodo calcula los puntos de ataque siendo éste 3/2 de la
+   * El siguiente metodo calcula los puntos de ataque siendo Ã©ste 3/2 de la
    * fuerza.
-   * @return retorna el daño de ataque que va a causar.
+   * @return retorna el daÃ±o de ataque que va a causar.
    */
   public int calcularPuntosDeAtaque() {
     return (int) ((this.getFuerza() * MULTIPLICADOR_ATAQUE));
@@ -419,7 +424,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   /**
-   * El siguiente metodo calcula los puntos de magia siendo éste 3/2 de la
+   * El siguiente metodo calcula los puntos de magia siendo Ã©ste 3/2 de la
    * inteligencia.
    * @return Retorna los puntos de magia.
    */
@@ -428,19 +433,19 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   
-  /** El siguiente metodo recarga el nivel de salud del personaje al máximo */
+  /** El siguiente metodo recarga el nivel de salud del personaje al mÃ¡ximo. */
   public void restablecerSalud() {
     this.salud = this.getSaludTotal();
   }
 
   /**
-   * El siguiente metodo recarga el nivel de energía del personaje al máximo.
+   * El siguiente metodo recarga el nivel de energÃ­a del personaje al mÃ¡ximo.
    */
   public void restablecerEnergia() {
     this.energia = this.getEnergiaTotal();
   }
 
-  /** El siguiente asigna al ataque, defensa y magia los valores calculados */
+  /** El siguiente asigna al ataque, defensa y magia los valores calculados. */
   public void modificarAtributos() {
     this.ataque = this.calcularPuntosDeAtaque();
     this.defensa = this.calcularPuntosDeDefensa();
@@ -451,7 +456,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * El siguiente metodo revisa si el personaje esta vivo.
    * @return retorna un booleano para verificar si esta vivo o no.
    */
-  /** El siguiente metodo permite saber si el personaje esta con vida */
   public boolean estaVivo() {
     return this.getSalud() > 0;
   }
@@ -461,7 +465,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * @param dano - dano que debe recibir la victima.
    * @return devuelve el danio causado o 0.
    */
-  /** El siguiente metodo permite al enemigo atacar al personaje */
   public int serAtacado(int dano) {
     if (randgen.randomDouble() >= this.getCasta().getProbabilidadEvitarDano()) {
       dano -= this.getDefensaTotal();
@@ -536,7 +539,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * puede tener.
    * @param energia - energia que, inicialmente, representa cuanto tiene y finalmente su energia curada.
    */
-  /** El siguiente metodo permite cargar energia al personaje */
   public void serEnergizado(final int energia) {
     if ((this.energia + energia) <= this.getEnergiaTotal()) {
       this.energia += energia;
@@ -549,7 +551,6 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * El metodo crearAlianza se encarga de crear una alianza nueva.
    * @param nombreAlianza - Nombre de la alianza que vamos a crear.
    */
-  /** El siguiente metodo permite al personaje crear una alianza */
   public void crearAlianza(final String nombreAlianza) {
     this.clan = new Alianza(nombreAlianza);
     this.clan.anadirPersonaje(this);
@@ -569,6 +570,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   /**
    * El siguiente metodo permite al personaje agregar un nuevo miembro a su
    * alianza.
+   * @param nuevoAliado - Personaje aliado que agregaremos a la alianza.
    * @return devuelve true si lo pudo agregar o false si no pudo.
    */
   public boolean aliar(final Personaje nuevoAliado) {
@@ -588,15 +590,20 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
   }
 
   
-  /** metodo que actualiza los states sin que ests superen el tope */
+  /** 
+   * metodo que actualiza los states sin que ests superen el tope. 
+   * @param fuerza - Fuerza que se agrega a los stats.
+   * @param destreza - Destreza que se agrega a los stats.
+   * @param inteligencia - Inteligencia que se agrega a los stats.
+   */
   public void AsignarPuntosSkills(final int fuerza, final int destreza, final int inteligencia) {
-    if (this.getFuerza() + fuerza <= 200) {
+    if (this.getFuerza() + fuerza <= TOPE_STATS) {
       super.fuerza += fuerza;
     }
-    if (this.destreza + destreza <= 200) {
+    if (this.destreza + destreza <= TOPE_STATS) {
       this.destreza += destreza;
     }
-    if (this.inteligencia + inteligencia <= 200) {
+    if (this.inteligencia + inteligencia <= TOPE_STATS) {
       this.inteligencia += inteligencia;
     }
     this.modificarAtributos();
@@ -604,26 +611,30 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 
   /**
    * metodo que controla lo sucedido cuando se sube el nivel, controlando que no
-   * se exceda de 100 y que se asignen los nuevos atributos
+   * se exceda de 100 y que se asignen los nuevos atributos.
    */
   public void subirNivel() {
 
     int acumuladorExperiencia = 0;
-    if (this.getNivel() == 100) {
+    if (this.getNivel() == NIVEL_TOPE) {
       return;
     }
-    while (this.getNivel() != 100
+    while (this.getNivel() != NIVEL_TOPE
         && (this.experiencia >= Personaje.tablaDeNiveles[this.getNivel() + 1] + acumuladorExperiencia)) {
       acumuladorExperiencia += Personaje.tablaDeNiveles[this.getNivel() + 1];
       this.nivel++;
       this.modificarAtributos();
-      this.saludTope += 25;
-      this.energiaTope += 20;
+      this.saludTope += AUMENTO_SALUD_POR_LEVEL;
+      this.energiaTope += AUMENTO_ENERGIA_POR_LEVEL;
     }
     this.experiencia -= acumuladorExperiencia;
   }
 
-  /** metodo que asigna la experiencia segun la tabla de niveles */
+  /** 
+   * metodo que asigna la experiencia segun la tabla de niveles.
+   * @param exp - Es la cantidad experiencia adquirida que queremos agregar a nuestra barra de experiencia.
+   * @return Retorna un booleano en true si sube de nivel o de lo contrario false.
+   */
   public boolean ganarExperiencia(final int exp) {
     this.experiencia += exp;
     if (experiencia >= Personaje.tablaDeNiveles[this.getNivel() + 1]) {
@@ -633,59 +644,106 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     return false;
   }
 
-  /** metodo que otorga la experiencia */
+  /** 
+   * metodo que otorga la experiencia.
+   * @return Retorna la cantidad de experiencia a otorgar.
+   */
   public int otorgarExp() {
-    return this.getNivel() * 40;
+    return this.getNivel() * MULTIPLICADOR_EXPERIENCIA;
   }
 
-  /** sobrecarga de clone para clonar un Personaje */
+  /** 
+   * sobrecarga de clone para clonar un Personaje.
+   * @throws CloneNotSupportedException - Retorna una excepcion si no puede clonar el objeto.
+   */
   @Override
   protected Object clone() throws CloneNotSupportedException {
     return super.clone();
   }
 
-  /** calcula la distancia entre dos personajes */
+  /** 
+   * calcula la distancia entre dos personajes.
+   * @param p - equivale a un personaje del cual queremos conocer su distancia respecto al personaje que consulta.
+   * @return devuelve la distancia entre quien consulta y un personaje p.
+   */
   public double distanciaCon(final Personaje p) {
     return Math.sqrt(Math.pow(this.x - p.x, 2) + Math.pow(this.y - p.y, 2));
   }
 
-  /** habilidad 1 que se sobrecarga segun la casta */
+  /** 
+   * habilidad 1 que se sobrecarga segun la casta.
+   * @param atacado - Personaje atacado (Victima).
+   * @return Retorna la habilidad 1 de la casta.
+   */
   public boolean habilidadCasta1(final Peleable atacado) {
     return this.getCasta().habilidad1(this, atacado);
   }
 
-  /** habilidad 2 que se sobrecarga segun la casta */
+  /** 
+   * habilidad 2 que se sobrecarga segun la casta. 
+   * @param atacado - Personaje atacado (Victima).
+   * @return Retorna la habilidad 2 de la casta.
+   */
   public boolean habilidadCasta2(final Peleable atacado) {
     return this.getCasta().habilidad2(this, atacado);
   }
 
-  /** habilidad 3 que se sobrecarga segun la casta */
+  /** 
+   * habilidad 3 que se sobrecarga segun la casta. 
+   * @param atacado - Personaje atacado (Victima).
+   * @return Retorna la habilidad 3 de la casta.
+   */
   public boolean habilidadCasta3(final Peleable atacado) {
     return this.getCasta().habilidad3(this, atacado);
   }
 
-  /** habilidad 1 que se sobrecarga segun la raza */
+  /** 
+   * habilidad 1 que se sobrecarga segun la raza. 
+   * @param atacado - Personaje atacado (Victima).
+   * @return Retorna la habilidad 1 de la raza.
+   */
   public abstract boolean habilidadRaza1(final Peleable atacado);
 
-  /** habilidad 2 que se sobrecarga segun la raza */
+  /** 
+   * habilidad 2 que se sobrecarga segun la raza. 
+   * @param atacado - Personaje atacado (Victima).
+   * @return Retorna la habilidad 2 de la raza.
+   */
   public abstract boolean habilidadRaza2(final Peleable atacado);
 
-  public void setRandgen(RandomNumberGenerator randgen) {
+  /** 
+   * Genera un numero randomico. 
+   * @param randgen - Numero randomico recibido que se va a almacenar.
+   */
+  public void setRandgen(final RandomNumberGenerator randgen) {
     this.randgen = randgen;
   }
 
-  protected void disminuirEnergia(int costeDeEnergiaHabilidades) {
+  /** 
+   * Disminuye la energia en el coste de una habilidad. 
+   * @param costeDeEnergiaHabilidad - Coste de energia de una habilidad.
+   */
+  protected void disminuirEnergia(final int costeDeEnergiaHabilidades) {
     this.energia -= costeDeEnergiaHabilidades;
   }
 
-  protected void aumentarDefensa(int defensa) {
+  /** 
+   * Aumenta la defensa. 
+   * @param defensa - Valor de defensa a aumentar.
+   */
+  protected void aumentarDefensa(final int defensa) {
     super.defensa += defensa;
   }
 
-  protected void aumentarAtaque(int ataque) {
+  /** 
+   * Aumenta el ataque. 
+   * @param ataque - Valor de ataque a aumentar.
+   */
+  protected void aumentarAtaque(final int ataque) {
     this.ataque += ataque;
 
   }
+  
   /*
    * public void actualizarEstado(PaquetePersonajeDom pp){ super.fuerza =
    * pp.getFuerza(); this.destreza = pp.getDestreza(); this.inteligencia =
@@ -700,7 +758,11 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
    * Hechicero(); break; case "Guerrero" : this.casta = new Guerrero(); break;
    * default : this.casta = null; } }
    */
-
+  
+  /** 
+   * Actualiza la salud y energia del personaje recibido. 
+   * @param pa - Paquete personaje recibido a actualizar.
+   */
   public void actualizarPorAtaque(PaqueteAtacar pa) {
     if (this.idPersonaje == pa.getIdEnemigo()) {
       super.salud = pa.getNuevaSaludEnemigo();
@@ -712,38 +774,75 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
     }
   }
 
+  /** 
+   * Getter de Defensa total mas la obtenida por los items. 
+   * @return retorna la defensa total.
+   */
   public int getDefensaTotal() {
     return super.defensa + inventario.getDefensa();
   }
 
+  /** 
+   * Getter de Ataque total mas el obtenido por los items. 
+   * @return retorna el ataque total.
+   */
   public int getAtaqueTotal() {
     return ataque + inventario.getAtaque();
   }
 
+  /** 
+   * Getter de Magia total mas la obtenida por los items. 
+   * @return retorna la magia total.
+   */
   public int getMagiaTotal() {
     return magia + inventario.getMagia();
   }
 
+  /** 
+   * Getter de Salud total mas la obtenida por los items. 
+   * @return retorna la salud total.
+   */
   public int getSaludTotal() {
     return saludTope + inventario.getSalud();
   }
 
+  /** 
+   * Getter de Energia total mas la obtenida por los items. 
+   * @return retorna la energia total.
+   */
   public int getEnergiaTotal() {
     return energiaTope + inventario.getEnergia();
   }
 
+  /** 
+   * Otorga un item randomico. 
+   * @param n - numero randomico representativo del item.
+   * @return retorna el mismo item a otorgar.
+   */
   public Item otorgarItem(int n) {
     return new Item(n);
   }
 
+  /** 
+   * Se recibe un objeto y se lo añade al inventario. 
+   * @param o - item a añadir al inventario.
+   */
   public void recibirObjeto(Item o) {
     inventario.añadir(o);
   }
 
+  /** 
+   * Getter del Inventario. 
+   * @return retorna el inventario.
+   */
   public Inventario getInventario() {
     return inventario;
   }
 
+  /** 
+   * Setter del Inventario en base a otro inventario.
+   * @param inv - Inventario a setear.
+   */
   public void setInventario(Inventario inv) {
     inventario = inv;
   }
