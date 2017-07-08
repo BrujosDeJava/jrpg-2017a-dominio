@@ -16,9 +16,9 @@ public class Asesino extends Casta {
 	// Constructores.
 	/**
 	 * Constructor parametrizado.
-	 * @param probCrit
-	 * @param evasion
-	 * @param danoCrit
+	 *@param probCrit
+	 *@param evasion
+	 *@param danoCrit
 	 */
 	public Asesino(final double probCrit, final double evasion, final double danoCrit) {
 		super(probCrit, evasion, danoCrit);

@@ -32,12 +32,12 @@ public class Inventario extends Item {
 	/**
 	 * Falta JavaDoc.
 	 */
-	public void añadir(final Item o) {
+	public void aniadir(final Item o) {
 		int type = o.getTipo();
 		switch (type) {
 		case 1:
 			if (cabeza.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				cabeza = o;				
@@ -45,7 +45,7 @@ public class Inventario extends Item {
 			break;
 		case 2:
 			if (manos.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				manos = o;				
@@ -53,7 +53,7 @@ public class Inventario extends Item {
 			break;
 		case 3:
 			if (pies.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				pies = o;				
@@ -61,7 +61,7 @@ public class Inventario extends Item {
 			break;
 		case 4:
 			if (cuerpo.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				cuerpo = o;				
@@ -69,7 +69,7 @@ public class Inventario extends Item {
 			break;
 		case 5:
 			if (accesorio.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				accesorio = o;				
@@ -77,7 +77,7 @@ public class Inventario extends Item {
 			break;
 		case 6:
 			if (arma.getId() != -1) {
-				añadirMochila(o);
+				aniadirMochila(o);
 				return;
 			} else{
 				arma = o;				
@@ -93,7 +93,7 @@ public class Inventario extends Item {
 		this.setMagia(o.getMagia() + this.getMagia());
 	}
 
-	private void añadirMochila(Item o) {
+	private void aniadirMochila(Item o) {
 		if (mochila.size() == 10)
 			return;
 		mochila.add(o);
