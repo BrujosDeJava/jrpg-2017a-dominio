@@ -622,7 +622,7 @@ public abstract class Personaje extends Unidad implements Peleable, Serializable
 	}
 
 	public void recibirObjeto(Item o) {
-		inventario.aniadir(o);
+		inventario.añadir(o);
 	}
 
 	public Inventario getInventario() {
